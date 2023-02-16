@@ -37,9 +37,6 @@ alias cfr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
 
-alias cargo="cargo +nightly"
-# alias kubectl="minikube kubectl --"
-
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
 
@@ -47,3 +44,4 @@ source $HOME/.cargo/env
 export PATH=$PATH:/home/cookie/.spicetify
 
 export GPG_TTY=$(tty)
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
