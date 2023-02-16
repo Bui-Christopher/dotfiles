@@ -3,3 +3,6 @@ chromium
 discord
 pavucontrol.ini
 pulse
+
+zsh/.p10k.zsh
+zsh/.zcompdump
