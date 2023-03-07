@@ -9,7 +9,8 @@
 - User
     - Cookie
     - Sudo
-- Rust
+- Install Rust
+- Add nitch code to setup.sh
 
 ## Internet
 `iwctl`
@@ -88,7 +89,8 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Packages
-`pacman -S blueberry clang cmake discord dmenu gcc git gzip unzip iproute2 polybar vlc feh sudo`
+`pacman -S blueberry chromium clang cmake discord dmenu gcc git gzip unzip iproute2 nim polybar vlc feh sudo zsh`
+
 
 `pacman -S pipewire pulseaudio`
 

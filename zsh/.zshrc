@@ -32,14 +32,15 @@ compinit
 # else
 #     eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 # fi
-# 
+
 # Custom alias
 alias cfr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
 
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+# Terminal CTRL+Left/Right Arrow Keys
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 source $HOME/.cargo/env
 export PATH=$PATH:/home/cookie/.spicetify
