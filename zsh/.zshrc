@@ -44,5 +44,3 @@ bindkey "^[[1;5D" backward-word
 
 source $HOME/.cargo/env
 export PATH=$PATH:/home/cookie/.spicetify
-
-export GPG_TTY=$(tty)
