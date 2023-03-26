@@ -11,7 +11,10 @@
     - Sudo
 - Install Rust
 - Add nitch code to setup.sh
-
+- Docker
+    - Use without sudo
+            - usermod -a
+            - gpasswd
 ## Internet
 `iwctl`
 
