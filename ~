@@ -7,4 +7,4 @@ spotify
 zsh/.p10k.zsh
 zsh/.zcompdump
 spicetify
-nvim/plugin/
+*packer_compiled.lua
