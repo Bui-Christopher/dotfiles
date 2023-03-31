@@ -28,4 +28,10 @@ return require('packer').startup(function(use)
 
     -- Languages
     use 'simrat39/rust-tools.nvim'
+
+    -- Themes
+    use { "ellisonleao/gruvbox.nvim" }
+
+    -- Git
+    use { "lewis6991/gitsigns.nvim" }
 end)
