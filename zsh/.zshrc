@@ -34,7 +34,7 @@ compinit
 # fi
 
 # Custom alias
-alias cfr="cp -R"	# Copy recursively, including hidden files
+alias cpr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
 
