@@ -28,6 +28,20 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 vim.opt.shortmess = vim.opt.shortmess + "c"             -- Avoid Shoring extra messages when using completion
 
 -- Completion Plugin Setup
+
+require('plugins')
+local lspconfig = require'lspconfig'
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      rustfmt = {
+        extraArgs = { "+nightly", },
+      },
+    }
+  }
+}
+
 -- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 local cmp = require("cmp")
 cmp.setup({
@@ -67,22 +81,6 @@ cmp.setup({
       documentation = cmp.config.window.bordered(),
   },
 })
-
-
--- Plugins
-require('plugins')
-
-local lspconfig = require'lspconfig'
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  settings = {
-    ["rust-analyzer"] = {
-      rustfmt = {
-        extraArgs = { "+nightly", },
-      },
-    }
-  }
-}
 
 local rt = require("rust-tools")
 rt.setup({
@@ -164,3 +162,11 @@ gs.setup {
     enable = false
   },
 }
+
+-- Highlight on yank
+vim.cmd [[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]]

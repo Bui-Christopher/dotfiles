@@ -92,8 +92,7 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Packages
-`pacman -S blueberry chromium clang cmake discord dmenu gcc git gzip unzip iproute2 nim polybar vlc feh sudo zsh`
-
+`pacman -S blueberry chromium clang cmake discord dmenu gcc git gzip unzip iproute2 nim polybar vlc feh sudo zsh xsel`
 
 `pacman -S pipewire pulseaudio`
 
