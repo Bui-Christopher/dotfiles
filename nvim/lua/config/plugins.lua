@@ -42,9 +42,13 @@ packer.init {
 return packer.startup(function(use)
 
     -- General
-    use "wbthomason/packer.nvim"                  -- Have packer manage itself
-    use "nvim-lua/plenary.nvim"                   -- Useful lua functions used by lots of plugins
+    use "wbthomason/packer.nvim"                -- Have packer manage itself
+    use "nvim-lua/plenary.nvim"                 -- Useful lua functions used by lots of plugins
   
+    -- Files
+    use "kyazdani42/nvim-tree.lua"              -- File Tree
+    use "kyazdani42/nvim-web-devicons"          -- File Tree Icons 
+
     -- Colorscheme
     use { "ellisonleao/gruvbox.nvim" }
   
