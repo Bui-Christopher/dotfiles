@@ -199,7 +199,8 @@ mode "Passthrough Mode - Press Alt+F12 to exit" {
 }
 bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
 
-exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/dota-blue.jpg
+exec_always --no-startup-id feh --bg-center ~/.config/backgrounds/dota-throne.jpg
+
 gaps inner 15px
 gaps outer 5px
 gaps top 0
