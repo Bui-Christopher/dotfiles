@@ -8,3 +8,4 @@ zsh/.p10k.zsh
 zsh/.zcompdump
 spicetify
 nvim/plugin/
+dconf/
