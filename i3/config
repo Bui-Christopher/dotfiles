@@ -199,6 +199,9 @@ mode "Passthrough Mode - Press Alt+F12 to exit" {
 }
 bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
 
+# Dual monitor auto config
+exec_always --no-startup-id ~/.config/screenlayout/screen.sh
+# Desktop Images
 exec_always --no-startup-id feh --bg-center ~/.config/backgrounds/dota-throne.jpg
 
 gaps inner 15px
