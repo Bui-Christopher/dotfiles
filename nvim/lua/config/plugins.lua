@@ -84,7 +84,15 @@ return packer.startup(function(use)
     }
   
     -- Fuzzy Finder
-    use "nvim-telescope/telescope.nvim"
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
+      },
+      config = function()
+        require("telescope").load_extension("live_grep_args")
+      end
+    }
     
     -- Git
     use "lewis6991/gitsigns.nvim"
