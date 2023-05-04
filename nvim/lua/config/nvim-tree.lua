@@ -17,6 +17,6 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
   diagnostics = {
-      enable = true,
+    enable = true,
   }
 })
