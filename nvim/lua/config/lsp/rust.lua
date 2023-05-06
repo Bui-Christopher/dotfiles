@@ -2,9 +2,20 @@ local on_attach = function(client)
     require'completion'.on_attach(client)
 end
 
-require'lspconfig'.rust_analyzer.setup{
-    on_attach=on_attach,
-    settings = {
+require("rust-tools").setup({
+    tools = {
+        inlay_hints = {
+        auto = true,
+        only_current_line = false,
+        show_parameter_hints = true,
+    },
+    on_initialized = function()
+      -- ih.set_all()
+    end,
+    },
+
+    server = {
+        settings = {
         ["rust-analyzer"] = {
             imports = {
                 granularity = {
@@ -12,30 +23,18 @@ require'lspconfig'.rust_analyzer.setup{
                 },
                 prefix = "self",
             },
-            -- TODO: Understand why this doesn't work 
-            -- rustfmt = {
-            --     extraArgs = { "+nightly" },
-            -- },
-
             cargo = {
                 buildScripts = {
                     enable = true,
                 },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-}
-
-require("rust-tools").setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+             },
+             procMacro = {
+                enable = true,
+             },
+             checkOnSave = {
+                 command = "clippy",
+             }
+         }
+     }
+ },
 })
