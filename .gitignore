@@ -4,7 +4,6 @@ discord
 pavucontrol.ini
 pulse
 spotify
-zsh/.p10k.zsh
 zsh/.zcompdump
 spicetify
 nvim/plugin/
