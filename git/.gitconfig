@@ -1,1 +1,16 @@
-.gitconfig
+[user]
+    name = Chris
+    email = christopherphongbui@gmail.com
+	signingkey = 7C5673A22BA6DCED
+[init]
+    defaultBranch = main 
+[color]
+    ui = auto 
+[commit]
+    gpgsign = true 
+[gpg]
+    program = gpg 
+[alias]
+    last = log -1 HEAD 
+    ol = log --oneline
+    amend = commit --amend -S --no-edit

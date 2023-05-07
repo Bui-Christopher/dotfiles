@@ -2,13 +2,9 @@
 
 ## TODOS
 - Add packages
-- Add git config
+- Fix git config
 - Add gui
     - i3/sway/xorg/wayland/hyperland
-- Update Spotify
-- User
-    - Cookie
-    - Sudo
 - Install Rust
 - Add nitch code to setup.sh
 - Docker
@@ -31,28 +27,27 @@
 
 `fdisk /dev/nvme0n1`
 
-Make a mount drive
-- Linux filesystem
-
 Make a boot drive
 - +512M 
 - EFI System
 
-`mkfs.ext4 /dev/nvme0n1p1`
+Make a mount drive
+- Linux filesystem
 
-`mkfs.fat -F 32 /dev/nvme0n1p2`
+`mkfs.fat -F 32 /dev/nvme0n1p1`
+
+`mkfs.ext4 /dev/nvme0n1p2`
+
 
 ### Mount Drives
-`mount /dev/nvme0n1p1 /mnt`
+`mount /dev/nvme0n1p2 /mnt`
 
-`mount --mkdir /dev/nvme0n1p2 /mnt/boot`
+`mount --mkdir /dev/nvme0n1p1 /mnt/boot`
 
 ### Install Linux/Necessary Packages
-`pacstrap -K /mnt base linux linux-firmware`
+`pacstrap -K /mnt base linux linux-firmware networkmanager kitty neovim`
 
 `genfstab -U /mnt >> /mnt/etc/fstab`
-
-`pacman -S networkmanager kitty neovim`
 
 ## Personalize
 `arch-chroot /mnt`
@@ -62,7 +57,7 @@ Make a boot drive
 
 `hwclock --systohc`
 
-Within: `/etc/locale.conf`
+Within: `nvim /etc/locale.conf`
 
 Modify: `LANG=en_US.UTF-8`
 
@@ -81,8 +76,6 @@ Run: `passwd`
 
 `pacman -S grub efibootmgr`
 
-`mount /mnt/boot`
-
 `grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB`
 
 Within: `/etc/default/grub`
@@ -92,16 +85,24 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Packages
-`pacman -S blueberry chromium clang cmake discord dmenu gcc git gzip unzip iproute2 nim polybar vlc feh sudo zsh xsel`
+`pacman -S blueberry chromium clang cmake discord dmenu feh gcc git gzip iproute2 nim polybar sunzip sudo vlc xsel zsh`
 
 `pacman -S pipewire pulseaudio`
 
-## Spotify
+`systemctl enable NetworkManager.service`
+`systemctl start NetworkManager.service`
 
-`makepkg`
+`systemctl enable bluetooth.service`
+`systemctl start bluetooth.service`
 
-`pacman -U $PACKAGE_FILE`
+### Add User
+`useradd -m cookie`
+`passwd cookie`
+`usermod -aG wheel cookie`
 
-`sudo chmod a+wr /opt/spotify`
+`visudo`
+`cookie ALL=(ALL) ALL`
 
-`sudo chmod a+wr /opt/spotify/Apps -R`
+
+### Random notes
+`pkill polybar`
