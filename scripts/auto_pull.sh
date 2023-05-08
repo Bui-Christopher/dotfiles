@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# To run the script...
-# ~/.config/scripts/git-pull.sh
+# Run the script within directory to autopull
 
 REPOS=`pwd`
 

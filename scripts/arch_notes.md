@@ -1,16 +1,17 @@
 # Arch Install
 
 ## TODOS
-- Add packages
-- Fix git config
 - Add gui
     - i3/sway/xorg/wayland/hyperland
-- Install Rust
-- Add nitch code to setup.sh
 - Docker
     - Use without sudo
             - usermod -a
             - gpasswd
+- `pacman -S pipewire pulseaudio`
+- AUR
+    - nerd font (Meslo)
+    - spotify/spicetify
+
 ## Internet
 `iwctl`
 
@@ -27,52 +28,75 @@
 
 `fdisk /dev/nvme0n1`
 
-Make a boot drive
+Create a boot drive
+- `mkfs.fat -F 32 /dev/nvme0n1p1`
 - +512M 
 - EFI System
 
-Make a mount drive
+Create a mount drive
+- `mkfs.ext4 /dev/nvme0n1p2`
 - Linux filesystem
 
-`mkfs.fat -F 32 /dev/nvme0n1p1`
-
-`mkfs.ext4 /dev/nvme0n1p2`
-
-
-### Mount Drives
+## Mount Drives
 `mount /dev/nvme0n1p2 /mnt`
 
 `mount --mkdir /dev/nvme0n1p1 /mnt/boot`
 
-### Install Linux/Necessary Packages
-`pacstrap -K /mnt base linux linux-firmware networkmanager kitty neovim`
+## Install Linux and Packages
+
+### Linux
+`pacstrap -K /mnt base linux linux-firmware`
 
 `genfstab -U /mnt >> /mnt/etc/fstab`
 
-## Personalize
+### Necessary Packages 
 `arch-chroot /mnt`
 
-### Timezone/Clock
+`pacman -S networkmanager kitty neovim sudo grub efibootmgr`
+
+`git clone https://github.com/Bui-Christopher/dotfiles.git`
+
+### Preferences
+
+#### Timezone/Clock
 `ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime`
 
 `hwclock --systohc`
 
-Within: `nvim /etc/locale.conf`
+#### Localization
+Edit: `/etc/locale.gen`
 
-Modify: `LANG=en_US.UTF-8`
+Uncomment: `LANG=en_US.UTF-8`
 
 Run: `locale-gen`
 
-### Hostname
+Create: `/etc/locale.conf`
+- Add `LANG=en_US.UTF-8`
+
+#### Hostname
 Create: `/etc/hostname`
 
 Write: `oven`
 
-### Password
+#### Password
 Run: `passwd`
 
+#### Add User
+`useradd -m cookie`
+
+`passwd cookie`
+
+`usermod -aG wheel cookie`
+
+##### SUDO Permissions
+`export EDITOR=nvim`
+
+`visudo`
+
+`cookie ALL=(ALL) ALL`
+
 ## Bootloader
-`https://wiki.archlinux.org/title/GRUB`
+[Grub Wiki](https://wiki.archlinux.org/title/GRUB)
 
 `pacman -S grub efibootmgr`
 
@@ -83,25 +107,6 @@ Within: `/etc/default/grub`
 Modify: `GRUB_DISABLE_OS_PROBER=false`
 
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
-
-### Packages
-`pacman -S blueberry chromium clang cmake discord dmenu feh gcc git gzip iproute2 nim polybar sunzip sudo vlc xsel zsh`
-
-`pacman -S pipewire pulseaudio`
-
-`systemctl enable NetworkManager.service`
-`systemctl start NetworkManager.service`
-
-`systemctl enable bluetooth.service`
-`systemctl start bluetooth.service`
-
-### Add User
-`useradd -m cookie`
-`passwd cookie`
-`usermod -aG wheel cookie`
-
-`visudo`
-`cookie ALL=(ALL) ALL`
 
 
 ### Random notes
