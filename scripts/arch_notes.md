@@ -21,7 +21,7 @@
 
 `station wlan0 get-networks`
 
-`station --passphrase passphrase connect SSID`
+`station wlan0 connect SSIDu
 
 ## Partition Disks
 `fdisk -l`
@@ -52,7 +52,7 @@ Create a mount drive
 ### Necessary Packages 
 `arch-chroot /mnt`
 
-`pacman -S networkmanager kitty neovim sudo grub efibootmgr`
+`pacman -S networkmanager git kitty neovim sudo grub efibootmgr`
 
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
@@ -66,7 +66,7 @@ Create a mount drive
 #### Localization
 Edit: `/etc/locale.gen`
 
-Uncomment: `LANG=en_US.UTF-8`
+Uncomment: `en_US.UTF-8`
 
 Run: `locale-gen`
 
@@ -100,7 +100,7 @@ Run: `passwd`
 
 `pacman -S grub efibootmgr`
 
-`grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=GRUB`
+`grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
 Within: `/etc/default/grub`
 
@@ -108,6 +108,11 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
+## Network Manager
+systemctl enable NetworkManager.service
+systemctl start NetworkManager.service
+nmcli device wifi list
+nmcli device wifi connect SSID password PASSWORD
 
 ### Random notes
 `pkill polybar`

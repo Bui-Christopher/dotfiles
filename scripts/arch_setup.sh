@@ -30,7 +30,7 @@ export config="$home/.config"
 # Note to self:
 # scripts_dir = change to parent dirctory of the running script && pwd
 export scripts_dir="$(cd "$(dirname "$0")" && pwd)"
-export dotfiles_dir="$scripts_dir/dotfiles"
+export dotfiles_dir="$(cd "$scripts_dir/.." && pwd)"
 export nitch_dir="${config}/nitch"
 export nitch_config="${scripts_dir}/nitch/drawing.nim"
 
@@ -47,11 +47,12 @@ chown -R "$username:$username" "$home/Documents"
 chown -R "$username:$username" "$home/Downloads"
 
 # Package Manager/Packages
-pacman -Syu
-pacman -S -y blueberry chromium clang cmake curl discord docker docker-compose feh gcc gzip iproute2 nim unzip vlc wget zsh
+sudo pacman -Syu
+sudo pacman -S -y blueberry chromium clang cmake curl discord docker docker-compose fakeroot feh gcc gzip iproute2 nim unzip vlc wget zsh
 
 ## AUR
 git clone https://aur.archlinux.org/yay.git
+chown -R "$username:$username" "yay"
 cd yay
 sudo -u "$username" makepkg -sri --noconfirm
 cd ..
@@ -64,9 +65,9 @@ ln -sf "$config/git/.gitconfig" "$home/.gitconfig"
 mv "$config/zsh/.zshrc_home" "$home/.zshrc"
 chsh -s /bin/zsh
 
-systemctl enable docker
+sudo systemctl enable docker
 
-# Rust
+# # Rust
 curl -s https://sh.rustup.rs > rust.sh
 sh rust.sh -y && rm rust.sh
 rustup default stable
@@ -80,14 +81,14 @@ cd "$nitch_dir"
 cp $nitch_config $nitch_dir/src/funcs/
 nimble build
 chmod +x nitch
-mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
+sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
 # xorg/i3
-pacman -S -y xorg-server xorg-xinit xsel i3-wm dmenu polybar lightdm lightdm-gtk-greeter
-systemctl enable bluetooth.service
-systemctl enable lightdm
-systemctl edit --full lightdm.service << EOF
-[Unit]
-After=bluetooth.service
-EOF
+sudo pacman -S -y xorg-server xorg-xinit xsel i3-wm dmenu polybar lightdm lightdm-gtk-greeter
+sudo systemctl enable bluetooth.service
+sudo systemctl enable lightdm
+# systemctl edit --full lightdm.service << EOF
+# [Unit]
+# After=bluetooth.service
+# EOF
 
