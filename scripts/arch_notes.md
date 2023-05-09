@@ -11,7 +11,14 @@
 - AUR
     - nerd font (Meslo)
     - spotify/spicetify
+- Start bluetooth prior to lightdm
+```
+systemctl edit --full lightdm.service << EOF
+[Unit]
+After=bluetooth.service
+EOF
 
+```
 ## Internet
 `iwctl`
 
@@ -21,7 +28,7 @@
 
 `station wlan0 get-networks`
 
-`station wlan0 connect SSIDu
+`station wlan0 connect SSID`
 
 ## Partition Disks
 `fdisk -l`
@@ -53,8 +60,6 @@ Create a mount drive
 `arch-chroot /mnt`
 
 `pacman -S networkmanager git kitty neovim sudo grub efibootmgr`
-
-`git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 ### Preferences
 
@@ -109,10 +114,19 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ## Network Manager
-systemctl enable NetworkManager.service
-systemctl start NetworkManager.service
-nmcli device wifi list
-nmcli device wifi connect SSID password PASSWORD
+`systemctl enable NetworkManager.service`
+
+`systemctl start NetworkManager.service`
+
+`nmcli device wifi list`
+
+`nmcli device wifi connect SSID password PASSWORD`
 
 ### Random notes
+`git clone https://github.com/Bui-Christopher/dotfiles.git`
+
+`./dotfiles/scripts/arch_setup.sh`
+
+`reboot`
+
 `pkill polybar`

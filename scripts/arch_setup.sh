@@ -62,12 +62,12 @@ rm -rf yay
 cd "$config"
 git submodule update --init --recursive
 ln -sf "$config/git/.gitconfig" "$home/.gitconfig"
-mv "$config/zsh/.zshrc_home" "$home/.zshrc"
+cp "$config/zsh/.zshrc_home" "$home/.zshrc"
 chsh -s /bin/zsh
 
 sudo systemctl enable docker
 
-# # Rust
+# Rust
 curl -s https://sh.rustup.rs > rust.sh
 sh rust.sh -y && rm rust.sh
 rustup default stable
@@ -84,7 +84,7 @@ chmod +x nitch
 sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
 # xorg/i3
-sudo pacman -S -y xorg-server xorg-xinit xsel i3-wm dmenu polybar lightdm lightdm-gtk-greeter
+sudo pacman -S --no-confirm xorg-server xorg-xinit xsel i3-wm dmenu polybar lightdm lightdm-gtk-greeter
 sudo systemctl enable bluetooth.service
 sudo systemctl enable lightdm
 # systemctl edit --full lightdm.service << EOF
