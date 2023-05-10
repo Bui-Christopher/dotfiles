@@ -48,7 +48,9 @@ chown -R "$username:$username" "$home/Downloads"
 
 # Package Manager/Packages
 sudo pacman -Syu
-sudo pacman -S --noconfirm blueberry chromium clang cmake curl discord docker docker-compose fakeroot feh gcc gzip iproute2 make nim unzip vlc wget zsh
+sudo pacman -S --noconfirm blueberry chromium clang cmake curl discord docker \
+    docker-compose fakeroot feh gcc gzip iproute2 make nim openssl pkg-config \
+    unzip vlc wget zsh
 
 ## AUR
 git clone https://aur.archlinux.org/yay.git
@@ -89,7 +91,8 @@ chmod +x nitch
 sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
 # xorg/i3
-sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr arandr polybar lightdm lightdm-gtk-greeter
+sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \
+    arandr polybar lightdm lightdm-gtk-greeter
 sudo systemctl enable bluetooth.service
 sudo systemctl enable lightdm
 

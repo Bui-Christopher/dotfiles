@@ -59,7 +59,7 @@ Create a mount drive
 ### Necessary Packages 
 `arch-chroot /mnt`
 
-`pacman -S networkmanager git kitty neovim sudo grub efibootmgr`
+`pacman -S --noconfirm networkmanager git kitty neovim sudo grub efibootmgr`
 
 ### Preferences
 
