@@ -73,11 +73,13 @@ chsh -s /bin/zsh
 # Rust
 curl -s https://sh.rustup.rs > rust.sh
 sh rust.sh -y && rm rust.sh
+source $HOME/.cargo/env
 rustup default stable
 rustup toolchain install nightly
 rustup +nightly component add rust-src rust-analyzer-preview
-ln -s ${home}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rust-analyzer \
- /usr/local/bin/rust-analyzer
+rustup component add rustfmt clippy
+cargo install cargo-watch
+cargo install cargo-edit
 
 # Nitch
 cd "$nitch_dir"
