@@ -32,7 +32,7 @@ export config="$home/.config"
 export scripts_dir="$(cd "$(dirname "$0")" && pwd)"
 export dotfiles_dir="$(cd "$scripts_dir/.." && pwd)"
 export nitch_dir="${config}/nitch"
-export nitch_config="${scripts_dir}/nitch/drawing.nim"
+export nitch_config="${config}/scripts/nitch/drawing.nim"
 
 set -e
 
