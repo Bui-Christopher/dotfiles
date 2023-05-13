@@ -49,8 +49,8 @@ chown -R "$username:$username" "$home/Downloads"
 # Package Manager/Packages
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl discord docker \
-    docker-compose fakeroot feh gcc gzip iproute2 make nim openssl pkg-config \
-    unzip vlc wget zsh
+    docker-compose fakeroot feh gcc gzip htop iproute2 make nim openssl pavucontrol \
+    pkg-config python tmux unzip vlc wget zip zsh
 
 ## AUR
 git clone https://aur.archlinux.org/yay.git
@@ -81,7 +81,7 @@ rustup toolchain install nightly
 rustup +nightly component add rust-src rust-analyzer-preview
 rustup component add rustfmt clippy
 cargo install cargo-watch
-cargo install cargo-edit
+cargo install ripgrep
 
 # Nitch
 cd "$nitch_dir"
@@ -105,4 +105,4 @@ sudo systemctl enable lightdm
 cd $config
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
 
-# reboot
+reboot
