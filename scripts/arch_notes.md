@@ -122,11 +122,18 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `nmcli device wifi connect SSID password PASSWORD`
 
-### Random notes
+## Final Setup
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
 
-`reboot`
 
+Edit: `/etc/bluetooth/main.conf`
+
+```
+[Policy]
+AutoEnable=true
+```
+
+### Other notes
 `pkill polybar`

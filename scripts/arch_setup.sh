@@ -63,6 +63,8 @@ rm -rf yay
 ## Docker
 sudo systemctl enable docker
 # TODO: Add user to not require sudo
+# sudo groupadd docker
+# sudo usermod -aG docker $username
 
 # Set up configs
 cd "$config"
