@@ -1,24 +1,18 @@
 # Arch Install
 
 ## TODOS
-- Add gui
-    - i3/sway/xorg/wayland/hyperland
-- Docker
-    - Use without sudo
-            - usermod -a
-            - gpasswd
-- `pacman -S pipewire pulseaudio`
-- AUR
-    - nerd font (Meslo)
-    - spotify/spicetify
+- Sway/Wayland
+- Spotify/Spicetify
+
 - Start bluetooth prior to lightdm
-```
-systemctl edit --full lightdm.service << EOF
-[Unit]
-After=bluetooth.service
-EOF
+
+Edit: `/etc/bluetooth/main.conf`
 
 ```
+[Policy]
+AutoEnable=true
+```
+
 ## Internet
 `iwctl`
 
@@ -126,7 +120,6 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
-
 
 Edit: `/etc/bluetooth/main.conf`
 

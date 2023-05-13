@@ -59,12 +59,11 @@ cd yay
 sudo -u "$username" makepkg -sri --noconfirm
 cd ..
 rm -rf yay
+yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k
 
 ## Docker
 sudo systemctl enable docker
-# TODO: Add user to not require sudo
-# sudo groupadd docker
-# sudo usermod -aG docker $username
+sudo usermod -aG docker "$username"
 
 # Set up configs
 cd "$config"
@@ -99,10 +98,6 @@ sudo systemctl enable bluetooth.service
 sudo systemctl enable lightdm
 
 # Have bluetooth.service start prior to lightdm.service
-# systemctl edit --full lightdm.service << EOF
-# [Unit]
-# After=bluetooth.service
-# EOF
 
 cd $config
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
