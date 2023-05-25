@@ -5,6 +5,9 @@
 - Spotify/Spicetify
 
 - Start bluetooth prior to lightdm
+- Emoji fonts
+    - noto-fonts-emoji
+- Steam
 
 Edit: `/etc/bluetooth/main.conf`
 
