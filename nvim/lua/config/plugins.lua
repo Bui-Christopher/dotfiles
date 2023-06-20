@@ -72,7 +72,10 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"             -- enable LSP
     use "williamboman/mason.nvim"           -- simple to use language server installer
     use "williamboman/mason-lspconfig.nvim" -- required for mason.nvim
-    use "j-hui/fidget.nvim"                 -- UI for lsp progress
+    use {
+        "j-hui/fidget.nvim",                 -- UI for lsp progress
+        tag = "legacy",
+    }
 
     use 'simrat39/rust-tools.nvim'          -- Rust
 

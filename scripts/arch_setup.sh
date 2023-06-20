@@ -97,7 +97,7 @@ sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \
 sudo systemctl enable bluetooth.service
 sudo systemctl enable lightdm
 
-# Have bluetooth.service start prior to lightdm.service
+# TODO Have bluetooth.service start prior to lightdm.service
 
 cd $config
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
