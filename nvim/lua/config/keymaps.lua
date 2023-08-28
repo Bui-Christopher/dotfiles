@@ -39,6 +39,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Diagnostics 
+keymap("n", "<leader>d", "<cmd> lua vim.diagnostic.open_float()<cr>", { noremap = true, silent = true })
         ------------
         -- Visual --
         ------------
@@ -65,7 +67,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
         ---------------
         -- Telescope --
         ---------------
-keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+-- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics(require('telescope.themes').get_dropdown({ previewer = true }))<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 
