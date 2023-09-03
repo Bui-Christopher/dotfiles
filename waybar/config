@@ -1,0 +1,20 @@
+{
+    "position": "bottom",
+    "height": 35,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "temperature", "clock"],
+    "tray": {
+        "icon-size": 30,
+        "spacing": 20
+    },
+    "clock": {
+        "timezone": "America/Los_Angeles",
+        "format": "{:%b %d. %a. %H:%M %p}"
+    },
+    "pulseaudio": {
+        "format-bluetooth": "{volume}% {icon}",
+        "on-click": "pavucontrol"
+    }
+}
+

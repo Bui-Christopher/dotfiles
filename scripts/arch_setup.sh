@@ -48,9 +48,9 @@ chown -R "$username:$username" "$home/Downloads"
 
 # Package Manager/Packages
 sudo pacman -Syu
-sudo pacman -S --noconfirm blueberry chromium clang cmake curl discord docker \
-    docker-compose fakeroot feh gcc gzip htop iproute2 make nim openssl pavucontrol \
-    pkg-config python tmux unzip vlc wget zip zsh
+sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
+    docker-compose fakeroot feh gcc gzip htop iproute2 kitty make nim \
+    openssl pavucontrol pkg-config python tmux unzip vlc wget zip zsh
 
 ## AUR
 git clone https://aur.archlinux.org/yay.git
@@ -59,7 +59,7 @@ cd yay
 sudo -u "$username" makepkg -sri --noconfirm
 cd ..
 rm -rf yay
-yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k
+yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k webcord
 
 ## Docker
 sudo systemctl enable docker
@@ -71,7 +71,6 @@ git submodule update --init --recursive
 ln -sf "$config/git/.gitconfig" "$home/.gitconfig"
 cp "$config/zsh/.zshrc_home" "$home/.zshrc"
 chsh -s /bin/zsh
-
 
 # Rust
 curl -s https://sh.rustup.rs > rust.sh
@@ -91,13 +90,19 @@ nimble build
 chmod +x nitch
 sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
-# xorg/i3
-sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \
-    arandr polybar lightdm lightdm-gtk-greeter
-sudo systemctl enable bluetooth.service
-sudo systemctl enable lightdm
+# Xorg/i3
+# sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \
+#     arandr polybar lightdm lightdm-gtk-greeter
+# sudo systemctl enable lightdm
 
-# TODO Have bluetooth.service start prior to lightdm.service
+# Wayland/Hyprland 
+# sudo yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
+#     hyprland-git hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
+#     dunst waybar-hyprland hyprshot sddm
+#
+
+# TODO Have bluetooth.service start prior to Display Manager
+# sudo systemctl enable bluetooth.service
 
 cd $config
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
