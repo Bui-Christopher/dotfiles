@@ -48,6 +48,11 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-tree.lua"     -- File Tree
     use "kyazdani42/nvim-web-devicons" -- File Tree Icons
 
+    -- Status Bar
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     -- Colorscheme
     use { "ellisonleao/gruvbox.nvim" }
 
@@ -98,6 +103,7 @@ return packer.startup(function(use)
 
     -- Git
     use "lewis6991/gitsigns.nvim"
+    use "f-person/git-blame.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

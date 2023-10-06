@@ -1,20 +1,31 @@
 # Arch Install
 
 ## TODOS
-- Sway/Wayland
-- Spotify/Spicetify
 
-- Start bluetooth prior to lightdm
+- Start bluetooth 
+    - systemctl enable bluetooth.service
+    - systemctl start bluetooth.service
+    - Edit: `/etc/bluetooth/main.conf`
+        ```
+        [Policy]
+        AutoEnable=true
+        ```
+- auto_pull.sh
+    - Move into /usr/local/bin/ or ~/bin
+    - Use symbolic link instead (for versioning)
+
 - Emoji fonts
     - noto-fonts-emoji
+
 - Steam
+    - Without flatpak, there are bugs. Use this to fix CSGO:
+    - ```
+      yay -S gperftools 
+      cd <path/to>/steamapps/common/Counter-Strike\ Global\ Offensive/bin/linux64 
+      mv libtcmalloc_minimal.so.0 libtcmalloc_minimal.so.0.orig
+      cp /usr/lib/libtcmalloc_minimal_debug.so.4.5.9 libtcmalloc_minimal.so.0
+      ```
 
-Edit: `/etc/bluetooth/main.conf`
-
-```
-[Policy]
-AutoEnable=true
-```
 
 ## Internet
 `iwctl`
@@ -120,16 +131,11 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 `nmcli device wifi connect SSID password PASSWORD`
 
 ## Final Setup
+`reboot`
+
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
-
-Edit: `/etc/bluetooth/main.conf`
-
-```
-[Policy]
-AutoEnable=true
-```
 
 ### Other notes
 `pkill polybar`

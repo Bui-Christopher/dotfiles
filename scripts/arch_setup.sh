@@ -60,6 +60,9 @@ sudo -u "$username" makepkg -sri --noconfirm
 cd ..
 rm -rf yay
 yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k webcord
+# spotify spicetify-cli 
+# sudo chmod a+wr /opt/spotify
+# sudo chmod a+wr /opt/spotify/Apps -R
 
 ## Docker
 sudo systemctl enable docker
@@ -96,10 +99,10 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 # sudo systemctl enable lightdm
 
 # Wayland/Hyprland 
-# sudo yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
-#     hyprland-git hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
-#     dunst waybar-hyprland hyprshot sddm
-#
+sudo yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
+    hyprland-git hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
+    dunst waybar-hyprland hyprshot sddm
+
 
 # TODO Have bluetooth.service start prior to Display Manager
 # sudo systemctl enable bluetooth.service

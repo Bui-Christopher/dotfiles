@@ -9,3 +9,5 @@ spicetify
 nvim/plugin/
 dconf/
 WebCord/
+libreoffice/
+user-dirs.*

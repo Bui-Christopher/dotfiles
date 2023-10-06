@@ -1,13 +1,13 @@
 [user]
     name = Chris
     email = christopherphongbui@gmail.com
-	signingkey = 0865111B67864955
+	signingkey = B051C8FE657C454A
 [init]
     defaultBranch = main 
 [color]
     ui = auto 
 [commit]
-    gpgsign = true 
+	gpgsign = true
 [gpg]
     program = gpg 
 [alias]
