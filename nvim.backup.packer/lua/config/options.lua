@@ -1,8 +1,4 @@
--- TODO: Still unsure of the commented out options
-
---Remap space as leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Still unsure of the commented out options
 
 -- vim.opt.backup = false                          -- creates a backup file
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
@@ -13,8 +9,8 @@ vim.opt.fileencoding = "utf-8"                  -- the encoding written to a fil
 -- Searching
 vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                       -- ignore case in search patterns
-vim.opt.showmatch = true			-- Show matching braces ([{}])
-vim.opt.incsearch = true		        -- Incremental search
+vim.opt.showmatch = true			            -- Show matching braces ([{}])
+vim.opt.incsearch = true		            	-- Incremental search
 
 -- Mouse
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
@@ -33,7 +29,7 @@ vim.opt.updatetime = 300                        -- faster completion (4000ms def
 -- vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 -- Indenting
-vim.opt.autoindent = true			-- Use identation of the previous line
+vim.opt.autoindent = true			            -- Use identation of the previous line
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
@@ -56,3 +52,11 @@ vim.opt.sidescrolloff = 8                       -- decide when to horizontally s
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.shortmess:append "c"
 -- vim.opt.shortmess = vim.opt.shortmess + "c"     -- Avoid Shoring extra messages when using completion
+
+-- Highlight on yank
+vim.cmd [[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]]

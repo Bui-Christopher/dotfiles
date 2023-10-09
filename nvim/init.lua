@@ -1,13 +1,10 @@
-require "config.options"
-require "config.keymaps"
-require "config.plugins"
-require "config.colorscheme"
-require "config.completions"
-require "config.lsp"
-require "config.telescope"
-require "config.treesitter"
-require "config.autopairs"
-require "config.comment"
-require "config.git"
-require "config.nvim-tree"
-require "config.todo"
+require("config.options")
+require("config.lazy")
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+        require("config.autocmds")
+        require("config.keymaps")
+    end,
+})
