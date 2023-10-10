@@ -1,4 +1,4 @@
-local M = {
+return {
     'numToStr/Comment.nvim',
     lazy = false,
     opts = {
@@ -13,6 +13,4 @@ local M = {
             block = 'gbc',
         },
     },
-    
 }
-return M

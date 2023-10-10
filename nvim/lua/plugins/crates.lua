@@ -1,15 +1,14 @@
-local M = {
+-- TODO: Add keys to check for crate versions/features 
+return {
     'saecki/crates.nvim',
     event = { "BufRead Cargo.toml" },
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        require('crates').setup({
-            src = {
-                cmp = {
-                    enabled = true,
-                }
+    lazy = true,
+    opts = {
+        src = {
+            cmp = {
+                enabled = true,
             }
-        })
-    end,
+        }
+    },
 }
-return M

@@ -1,4 +1,5 @@
-local M = {
+-- TODO: Understand this utils.git_colors
+return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
@@ -7,7 +8,7 @@ local M = {
 		return {
 			style = "moon",
 			-- hide_inactive_statusline = true,
-			on_highlights = function(hl, c)
+			on_highlights = function(hl)
 				hl.GitSignsAdd = {
 					fg = colors.GitAdd,
 				}
@@ -20,16 +21,14 @@ local M = {
 			end,
 		}
 	end,
-	config = function(_, opts)
+	config = function(opts)
 		local tokyonight = require("tokyonight")
 		tokyonight.setup(opts)
 		tokyonight.load()
 	end,
 }
 
-return M
-
--- local M = {
+-- return {
 --     "ellisonleao/gruvbox.nvim",
 --     lazy = false,
 --     priority = 1000,
@@ -39,4 +38,3 @@ return M
 --  		gruvbox.load()
 --  	end,
 -- }
--- return M

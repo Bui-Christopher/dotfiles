@@ -39,6 +39,19 @@ return {
                         },
                     })
                 end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        on_attach = lsp_utils.on_attach,
+                        capabilities = lsp_utils.capabilities,
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" },
+                                },
+                            },
+                        },
+                    })
+                end,
                 ["rust_analyzer"] = function()
                     require("rust-tools").setup({server = { on_attach = lsp_utils.on_attach }})
                 end,
@@ -69,7 +82,7 @@ return {
                 },
             },
         },
-        config = function(_, opts)
+        config = function(opts)
             require("mason").setup(opts)
             local utils = require("utils")
             local mr = require("mason-registry")

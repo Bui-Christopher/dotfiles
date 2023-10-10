@@ -1,4 +1,5 @@
-local M = {
+-- TODO: Refactor this beast
+return {
     "hrsh7th/nvim-cmp",
     event = "BufReadPre",
     dependencies = {
@@ -109,5 +110,3 @@ local M = {
         })
     end,
 }
-
-return M

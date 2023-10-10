@@ -1,6 +1,4 @@
-local M = 
-  -- Better `vim.notify()`
-  {
+return {
     "rcarriga/nvim-notify",
     keys = {
       {
@@ -20,5 +18,4 @@ local M =
         return math.floor(vim.o.columns * 0.75)
       end,
     }
-  }
-return M
+}

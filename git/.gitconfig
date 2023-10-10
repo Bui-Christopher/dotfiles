@@ -12,5 +12,5 @@
     program = gpg 
 [alias]
     last = log -1 HEAD 
-    ol = log --oneline
+    ol = log --oneline -10
     amend = commit --amend -S --no-edit
