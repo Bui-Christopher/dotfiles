@@ -1,13 +1,12 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- TODO: Remove, called in options.lua instead
+-- Remap space as leader key
+-- keymap("", "<Space>", "<Nop>", opts)
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -40,7 +39,7 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Diagnostics 
-keymap("n", "<leader>d", "<cmd> lua vim.diagnostic.open_float()<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>d", "<cmd> lua vim.diagnostic.open_float()<cr>", opts)
         ------------
         -- Visual --
         ------------
@@ -63,14 +62,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
-        ---------------
-        -- Telescope --
-        ---------------
--- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics(require('telescope.themes').get_dropdown({ previewer = true }))<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 
         ---------------
         -- Nvim-Tree --

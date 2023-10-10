@@ -28,3 +28,16 @@ return {
     end,                                         
 }
 ```
+
+TODO:
+Clean up and understand:
+- lsp
+    - init.lua
+    - lsp-utils.lua
+    - rust-tools.lua
+- cmp.lua
+- luasnip.lua
+- config/mappings.lua
+
+Refactor
+- utils.lua

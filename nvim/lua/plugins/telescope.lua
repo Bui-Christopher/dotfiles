@@ -8,12 +8,20 @@ return {
 	},
 	event = "BufReadPre",
     keys = {
-        -- disable the keymap to grep files
-        { "<leader>/", false },
         {
           "<leader>ff",
-          function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+          function() require("telescope.builtin").find_files({}) end,
           desc = "Find Plugin File",
+        },
+        {
+          "<leader>fg",
+          function() require("telescope.builtin").live_grep({}) end,
+          desc = "Live Grep",
+        },
+        {
+          "<leader>fb",
+          function() require("telescope.builtin").buffers({}) end,
+          desc = "Search Buffers",
         },
     },
 }
