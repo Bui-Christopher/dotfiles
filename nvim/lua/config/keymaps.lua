@@ -16,9 +16,9 @@ local opts = { noremap = true, silent = true }
 --   term_mode = "t",
 --   command_mode = "c",
 
-        ------------
-        -- Normal --
-        ------------
+------------
+-- Normal --
+------------
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -38,11 +38,11 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Diagnostics 
+-- Diagnostics
 keymap("n", "<leader>d", "<cmd> lua vim.diagnostic.open_float()<cr>", opts)
-        ------------
-        -- Visual --
-        ------------
+------------
+-- Visual --
+------------
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -54,23 +54,23 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 -- Keep most recent paste in register
 keymap("v", "p", '"_dP', opts)
 
-        ------------------
-        -- Visual Block --
-        ------------------
+------------------
+-- Visual Block --
+------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-        ---------------
-        -- Nvim-Tree --
-        ---------------
+---------------
+-- Nvim-Tree --
+---------------
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
-        -------------------
-        -- LSP-on-Attach --
-        -------------------
+-------------------
+-- LSP-on-Attach --
+-------------------
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -78,33 +78,28 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 
--- -- Use LspAttach autocommand to only map the following keys
--- -- after the language server attaches to the current buffer
--- vim.api.nvim_create_autocmd('LspAttach', {
---   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
---   callback = function(ev)
---     -- Enable completion triggered by <c-x><c-o>
---     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
--- 
---     -- Buffer local mappings.
---     -- See `:help vim.lsp.*` for documentation on any of the below functions
---     local opts = { buffer = ev.buf }
---     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
---     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
---     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
---     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
---     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
---     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
---     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
---     vim.keymap.set('n', '<space>wl', function()
---       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---     end, opts)
---     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
---     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
---     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
---     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
---     vim.keymap.set('n', '<space>f', function()
---       vim.lsp.buf.format { async = true }
---     end, opts)
---   end,
--- })
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        -- TODO: Compare keymaps with defaults
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<space>f', function()
+            vim.lsp.buf.format { async = true }
+        end, opts)
+    end,
+})

@@ -53,7 +53,7 @@ return {
                     })
                 end,
                 ["rust_analyzer"] = function()
-                    require("rust-tools").setup({server = { on_attach = lsp_utils.on_attach }})
+                    require("rust-tools").setup({ server = { on_attach = lsp_utils.on_attach } })
                 end,
                 ["clangd"] = function()
                     local capabilities_cpp = lsp_utils.capabilities

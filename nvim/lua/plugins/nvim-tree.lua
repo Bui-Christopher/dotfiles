@@ -10,29 +10,29 @@ return {
     cmd = { 'NvimTreeOpen', 'NvimTreeFindFileToggle' },
     lazy = false,
     opts = {
-            sort_by = "case_sensitive",
-            view = {
-                adaptive_size = true,
-            },
-            git = {
-                enable = true,
-                ignore = false,
-                timeout = 500,
-            },
-            -- Compact folders that only contain a single folder into one node. 
-            renderer = {
-                group_empty = true,
-                highlight_git = true,
-                highlight_diagnostics = true,
-                indent_markers = {
-                    enable = true,
-                }
-            },
-            filters = {
-                dotfiles = true,
-            },
-            diagnostics = {
+        sort_by = "case_sensitive",
+        view = {
+            adaptive_size = true,
+        },
+        git = {
+            enable = true,
+            ignore = false,
+            timeout = 500,
+        },
+        -- Compact folders that only contain a single folder into one node.
+        renderer = {
+            group_empty = true,
+            highlight_git = true,
+            highlight_diagnostics = true,
+            indent_markers = {
                 enable = true,
             }
+        },
+        filters = {
+            dotfiles = true,
+        },
+        diagnostics = {
+            enable = true,
+        }
     },
 }
