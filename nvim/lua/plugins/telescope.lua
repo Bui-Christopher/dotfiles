@@ -1,8 +1,8 @@
--- TODO: Understand key_mapping configs
+-- TODO: What about features of telescope?
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-        { "nvim-lua/plenary.nvim" }, -- TODO: Custom added, is there a better way like misc.lua?
+        { "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},

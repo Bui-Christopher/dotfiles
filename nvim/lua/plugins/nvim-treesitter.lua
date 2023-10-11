@@ -1,5 +1,6 @@
 -- TODO: See if there's some lazy way to ensure_installed more langauges
 -- Possibly tree-sitter CLI
+local parsers = { "rust", "lua", "c", "python", "bash", "vim", "markdown" }
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -8,7 +9,7 @@ return {
         "nvim-treesitter/nvim-treesitter-refactor",
     },
     opts = {
-            ensure_installed = { "rust", "lua", "c"},
+            ensure_installed = parsers,
             sync_install = true,
             auto_install = true,
             highlight = {
@@ -24,19 +25,19 @@ return {
             },
             indent = { enable = true },
             -- List of parsers to ignore installation
-            ignore_install = { "javascript" },
+            -- ignore_install = { "javascript" },
 
-            -- TODO: Verify if necessary
-            autopairs = { enable = true },
-            autotag = { enable = true },
-            refactor = {
-                highlight_definitions = {
-                    enable = true,
-                    -- Set to false if you have an `updatetime` of ~100.
-                    clear_on_cursor_move = true,
-                },
-                highlight_current_scope = { enable = false },
-            },
+            -- TODO: Delete if unnecessary
+            -- autopairs = { enable = true },
+            -- autotag = { enable = true },
+            -- refactor = {
+            --     highlight_definitions = {
+            --         enable = true,
+            --         -- Set to false if you have an `updatetime` of ~100.
+            --         clear_on_cursor_move = true,
+            --     },
+            --     highlight_current_scope = { enable = false },
+            -- },
     },
     config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)

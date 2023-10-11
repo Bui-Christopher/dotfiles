@@ -1,3 +1,4 @@
+-- TODO: Add opts
 return {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -7,7 +8,6 @@ return {
 }
 
 
--- TODO: Understand why use from_vs_code
 --         config = function()
 --             require("luasnip.loaders.from_vscode").lazy_load()
 --         end,

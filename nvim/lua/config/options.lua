@@ -25,7 +25,7 @@ vim.opt.splitright = true                       -- force all vertical splits to 
 vim.opt.swapfile = false                        -- creates a swapfile
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
--- vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
+vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 
 vim.opt.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true                         -- enable persistent undo

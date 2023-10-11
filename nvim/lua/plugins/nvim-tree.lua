@@ -23,6 +23,10 @@ return {
             renderer = {
                 group_empty = true,
                 highlight_git = true,
+                highlight_diagnostics = true,
+                indent_markers = {
+                    enable = true,
+                }
             },
             filters = {
                 dotfiles = true,
