@@ -29,6 +29,7 @@ return {
             }
         },
         filters = {
+            git_ignored = true,
             dotfiles = true,
         },
         diagnostics = {

@@ -9,7 +9,7 @@ M.setup = function()
     vim.diagnostic.config({
         virtual_text = true,
         float = {
-            focusable = false,
+            focusable = true,
             style = "minimal",
             border = "rounded",
             source = "always",
