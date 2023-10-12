@@ -32,13 +32,9 @@ return {
 TODO:
 - telescope.lua: Other features
 - rust-tools.lua: Clean up
-- nvim-treesitter.lua: Clean up commented code
 - gitsigns.lua: Test different blame formats
-- colorscheme.lua: Add different styles to tokyonight. Ex. Moon, Storm
 - utils.lua: Refactor
 - LSP
     - init.lua: Refactor
     - lsp-utils.lua: Refactor
     - luasnip: Clean up commented code
-- CONFIG
-    - mappings.lua: Return to previous packer state of keybinds
