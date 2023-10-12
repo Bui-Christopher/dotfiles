@@ -31,10 +31,8 @@ return {
 
 TODO:
 - telescope.lua: Other features
-- rust-tools.lua: Clean up
 - gitsigns.lua: Test different blame formats
-- utils.lua: Refactor
-- LSP
-    - init.lua: Refactor
-    - lsp-utils.lua: Refactor
+- LSP/Rust
+    - crates.lua: Add to nvim-cmp
+    - rust-tools.lua: Clean up
     - luasnip: Clean up commented code

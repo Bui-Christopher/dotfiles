@@ -2,34 +2,17 @@
 -- -- Also, play with config/opts so that we can utilize different styles. (storm, moon)
 
 -- return {
--- 	"folke/tokyonight.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	opts = {
---         function()
--- 		local colors = require("utils").git_colors
--- 		return {
--- 			-- hide_inactive_statusline = true,
--- 			on_highlights = function(hl)
--- 				hl.GitSignsAdd = {
--- 					fg = colors.GitAdd,
--- 				}
--- 				hl.GitSignsChange = {
--- 					fg = colors.GitChange,
--- 				}
--- 				hl.GitSignsDelete = {
--- 					fg = colors.GitDelete,
--- 				}
--- 			end,
--- 		}
---         end,
+--     "folke/tokyonight.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     opts = {
 --         style = "night",
 --     },
--- 	config = function(_, opts)
--- 		local tokyonight = require("tokyonight")
--- 		tokyonight.setup(opts)
--- 		tokyonight.load()
--- 	end,
+--     config = function(_, opts)
+--         local tokyonight = require("tokyonight")
+--         tokyonight.setup(opts)
+--         tokyonight.load()
+--     end,
 -- }
 
 return {
@@ -51,7 +34,8 @@ return {
 --     lazy = false,
 --     priority = 1000,
 --     config = function(_, opts)
---         require("kanagawa").setup(opts)
---         require("kanagawa").load("wave")
+--         local kanagawa = require("kanagawa")
+--         kanagawa.setup(opts)
+--         kanagawa.load("wave")
 --     end,
 -- }

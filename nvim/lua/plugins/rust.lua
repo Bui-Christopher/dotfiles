@@ -1,6 +1,6 @@
 local M = {
     "simrat39/rust-tools.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     dependencies = {
         "neovim/nvim-lspconfig",
         "nvim-lua/plenary.nvim",
@@ -82,9 +82,9 @@ local M = {
             -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
             server = {
                 on_attach = function(client, bufnr)
-                    require("plugins.lsp").common_on_attach(client, bufnr)
+                    require("plugins.lsp.lspconfig").common_on_attach(client, bufnr)
                 end,
-                on_init = require("plugins.lsp").common_on_init,
+                on_init = require("plugins.lsp.lspconfig").common_on_init,
                 -- capabilities = require("plugins.lsp").common_capabilities(),
                 settings = {
                     ["rust-analyzer"] = {
@@ -103,10 +103,12 @@ local M = {
                             enable = true,
                         },
                         checkOnSave = {
-                            enable = true,
                             command = "clippy",
                         },
-                        diagnostics = { disabled = "rustc" }
+                        rustfmt = {
+                            extraArgs = "+nightly",
+                        },
+                        -- diagnostics = { disabled = "rustc" }
                     },
                 },
             },
