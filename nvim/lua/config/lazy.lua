@@ -15,8 +15,8 @@ require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
     install = { colorscheme = { "tokyonight", "gruvbox" } },
     defaults = {
         -- TODO: Experiment if this can be set to true
-        lazy = false,          -- Always lazy load
-        version = false,       -- Always use the latest git commit
+        lazy = false,             -- Always lazy load
+        version = false,          -- Always use the latest git commit
     },
     checker = { enabled = true }, -- automatically check for plugin updates
     ui = { border = "rounded" },
