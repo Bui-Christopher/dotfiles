@@ -87,7 +87,7 @@ return {
             end,
 
             ["rust_analyzer"] = function()
-                require("plugins.rust").setup {}
+                require("plugins.rust")
             end,
 
             -- ["pyright"] = function()
