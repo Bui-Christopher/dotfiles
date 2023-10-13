@@ -1,6 +1,6 @@
 local M = {
     "simrat39/rust-tools.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
         "neovim/nvim-lspconfig",
         "nvim-lua/plenary.nvim",
