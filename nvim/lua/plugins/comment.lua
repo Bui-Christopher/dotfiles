@@ -1,6 +1,7 @@
 return {
     'numToStr/Comment.nvim',
-    lazy = false,
+    event = "VeryLazy",
+    -- lazy = false,
     opts = {
         mappings = {
             basic = true,
