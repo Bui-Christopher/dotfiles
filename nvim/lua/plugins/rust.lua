@@ -1,10 +1,11 @@
-local M = {
+return {
     "simrat39/rust-tools.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     dependencies = {
         "neovim/nvim-lspconfig",
         "nvim-lua/plenary.nvim",
     },
+    ft = "rust",
     opts = {
         tools = { -- rust-tools options
 
@@ -81,32 +82,29 @@ local M = {
             -- these override the defaults set by rust-tools.nvim
             -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
             server = {
-                on_attach = function(client, bufnr)
-                    require("plugins.lsp.lspconfig").common_on_attach(client, bufnr)
-                end,
-                on_init = require("plugins.lsp.lspconfig").common_on_init,
-                -- capabilities = require("plugins.lsp").common_capabilities(),
+                on_attach = require("plugins.lsp.lspconfig").on_attach,
+                capabilities = require("plugins.lsp.lspconfig").capabilities,
                 settings = {
                     ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module",
-                            },
-                            prefix = "self",
-                        },
+                        -- imports = {
+                        --     granularity = {
+                        --         group = "module",
+                        --     },
+                        --     prefix = "self",
+                        -- },
                         cargo = {
                             buildScripts = {
                                 enable = true,
                             },
                         },
-                        procMacro = {
-                            enable = true,
-                        },
+                        -- procMacro = {
+                        --     enable = true,
+                        -- },
                         checkOnSave = {
                             command = "clippy",
                         },
                         rustfmt = {
-                            extraArgs = "+nightly",
+                            extraArgs = {"+nightly"},
                         },
                         -- diagnostics = { disabled = "rustc" }
                     },
@@ -118,4 +116,3 @@ local M = {
         },
     },
 }
-return M

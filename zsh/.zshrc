@@ -37,6 +37,7 @@ compinit
 alias cpr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
+alias gdb="arm-none-eabi-gdb" # While working with microbit
 
 # Terminal CTRL+Left/Right Arrow Keys
 bindkey "^[[1;5C" forward-word

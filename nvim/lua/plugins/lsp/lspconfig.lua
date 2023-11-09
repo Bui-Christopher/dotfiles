@@ -59,6 +59,9 @@ return {
 
             opts.desc = "Restart LSP"
             keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+            opts.desc = "Format"
+            keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts)
         end
 
         -- used to enable autocompletion (assign to every lsp server config)
@@ -79,15 +82,19 @@ return {
             })
         end
 
-        local mason = require("mason").setup({})
+        require("mason").setup({})
         local mason_lspconfig = require("mason-lspconfig")
         mason_lspconfig.setup_handlers({
+            -- function(server_name)
+            --     default_handler(server_name, capabilities)
+            -- end,
             function(server_name)
-                default_handler(server_name, capabilities)
+                  -- require("lspconfig")[server_name].setup{}
+                  require("lspconfig")[server_name].setup({ on_attach = on_attach, capabilities = capabilities })
             end,
 
             ["rust_analyzer"] = function()
-                require("plugins.rust")
+                -- require("plugins.rust").setup()
             end,
 
             -- ["pyright"] = function()
