@@ -2,13 +2,16 @@
 
 ## TODOS
 
-- Start bluetooth 
+- Bluetooth 
     - systemctl enable bluetooth.service
     - systemctl start bluetooth.service
     - Edit: `/etc/bluetooth/main.conf`
         ```
         [Policy]
         AutoEnable=true
+
+        # Also this one
+        FastConnectable = true
         ```
 - auto_pull.sh
     - Move into /usr/local/bin/ or ~/bin
