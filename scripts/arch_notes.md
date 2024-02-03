@@ -1,36 +1,8 @@
 # Arch Install
+This is an example of a step-by-step process of installing Arch Linux. These include notes and TODO's.
 
-## TODOS
-
-- Bluetooth 
-    - systemctl enable bluetooth.service
-    - systemctl start bluetooth.service
-    - Edit: `/etc/bluetooth/main.conf`
-        ```
-        [Policy]
-        AutoEnable=true
-
-        # Also this one
-        FastConnectable = true
-        ```
-- auto_pull.sh
-    - Move into /usr/local/bin/ or ~/bin
-    - Use symbolic link instead (for versioning)
-
-- Emoji fonts
-    - noto-fonts-emoji
-
-- Steam
-    - Without flatpak, there are bugs. Use this to fix CSGO:
-    - ```
-      yay -S gperftools 
-      cd <path/to>/steamapps/common/Counter-Strike\ Global\ Offensive/bin/linux64 
-      mv libtcmalloc_minimal.so.0 libtcmalloc_minimal.so.0.orig
-      cp /usr/lib/libtcmalloc_minimal_debug.so.4.5.9 libtcmalloc_minimal.so.0
-      ```
-
-
-## Internet
+## Arch Install Notes
+### Internet
 `iwctl`
 
 `device list`
@@ -41,7 +13,7 @@
 
 `station wlan0 connect SSID`
 
-## Partition Disks
+### Partition Disks
 `fdisk -l`
 
 `fdisk /dev/nvme0n1`
@@ -55,26 +27,26 @@ Create a mount drive
 - `mkfs.ext4 /dev/nvme0n1p2`
 - Linux filesystem
 
-## Mount Drives
+### Mount Drives
 `mount /dev/nvme0n1p2 /mnt`
 
 `mount --mkdir /dev/nvme0n1p1 /mnt/boot`
 
-## Install Linux and Packages
+### Install Linux and Packages
 
-### Linux
+#### Linux
 `pacstrap -K /mnt base linux linux-firmware`
 
 `genfstab -U /mnt >> /mnt/etc/fstab`
 
-### Necessary Packages 
+#### Packages 
 `arch-chroot /mnt`
 
 `pacman -S --noconfirm networkmanager git kitty neovim sudo grub efibootmgr`
 
 ### Preferences
 
-#### Timezone/Clock
+##### Timezone/Clock
 `ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime`
 
 `hwclock --systohc`
@@ -111,7 +83,7 @@ Run: `passwd`
 
 `cookie ALL=(ALL) ALL`
 
-## Bootloader
+### Bootloader
 [Grub Wiki](https://wiki.archlinux.org/title/GRUB)
 
 `pacman -S grub efibootmgr`
@@ -124,7 +96,7 @@ Modify: `GRUB_DISABLE_OS_PROBER=false`
 
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
-## Network Manager
+### Network Manager
 `systemctl enable NetworkManager.service`
 
 `systemctl start NetworkManager.service`
@@ -133,12 +105,39 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `nmcli device wifi connect SSID password PASSWORD`
 
-## Final Setup
+### Final Setup
 `reboot`
 
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
 
-### Other notes
-`pkill polybar`
+## TODO's/Other Notes
+- Bluetooth 
+    - systemctl enable bluetooth.service
+    - systemctl start bluetooth.service
+    - Edit: `/etc/bluetooth/main.conf`
+        ```
+        [Policy]
+        AutoEnable=true
+
+        # Also this one
+        FastConnectable = true
+        ```
+- auto_pull.sh
+    - Move into /usr/local/bin/ or ~/bin
+    - Use symbolic link instead (for versioning)
+
+- Emoji fonts
+    - noto-fonts-emoji
+
+- Steam
+    - Without flatpak, there are bugs. Use this to fix CSGO:
+    - ```
+      yay -S gperftools 
+      cd <path/to>/steamapps/common/Counter-Strike\ Global\ Offensive/bin/linux64 
+      mv libtcmalloc_minimal.so.0 libtcmalloc_minimal.so.0.orig
+      cp /usr/lib/libtcmalloc_minimal_debug.so.4.5.9 libtcmalloc_minimal.so.0
+      ```
+
+
