@@ -8,9 +8,7 @@ return {
             extra = true,
         },
         toggler = {
-            ---Line-comment toggle keymap
             line = 'gcc',
-            ---Block-comment toggle keymap
             block = 'gbc',
         },
     },

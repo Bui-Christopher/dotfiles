@@ -1,6 +1,3 @@
--- -- TODO: Understand this utils.git_colors
--- -- Also, play with config/opts so that we can utilize different styles. (storm, moon)
-
 -- return {
 --     "folke/tokyonight.nvim",
 --     lazy = false,

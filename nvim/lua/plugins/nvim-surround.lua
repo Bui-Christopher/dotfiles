@@ -1,6 +1,6 @@
 return {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    -- Should this be InsertEnter or VeryLazy?
     event = "InsertEnter",
     -- event = "VeryLazy",
     config = true,

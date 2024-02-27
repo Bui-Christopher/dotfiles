@@ -1,8 +1,29 @@
+vim.g.rustaceanvim = {
+    server = {
+        default_settings = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    buildScripts = {
+                        enable = true,
+                    },
+                },
+                checkOnSave = {
+                    command = "clippy",
+                },
+                rustfmt = {
+                    extraArgs = { "+nightly" },
+                },
+            },
+        },
+    },
+}
+
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
+        "mrcjkb/rustaceanvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -19,6 +40,9 @@ return {
                 Lua = {
                     diagnostics = {
                         globals = { "vim" },
+                    },
+                    hint = {
+                        enable = true
                     }
                 }
             }

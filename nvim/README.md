@@ -30,9 +30,8 @@ return {
 ```
 
 TODO:
-- telescope.lua: Other features
+- Add notes for fugitive
+- Clean up config/keymaps.lua
 - gitsigns.lua: Test different blame formats
 - LSP/Rust
     - crates.lua: Add to nvim-cmp
-    - rust-tools.lua: Clean up
-    - luasnip: Clean up commented code
