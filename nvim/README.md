@@ -31,7 +31,11 @@ return {
 
 TODO:
 - Add notes for fugitive
-- Clean up config/keymaps.lua
+- Clean up
+    - `nvim-cmp.lua`
+    - `autocmds.lua`
+- Practice
+    - `nvim-ufo` (folding)
+    - LSP keymappings
 - gitsigns.lua: Test different blame formats
-- LSP/Rust
-    - crates.lua: Add to nvim-cmp
+- Add `nvim-cmp` to `crates.lua`

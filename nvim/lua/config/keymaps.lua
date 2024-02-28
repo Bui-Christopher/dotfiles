@@ -2,12 +2,6 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
--- TODO: Remove, called in options.lua instead
--- Remap space as leader key
--- keymap("", "<Space>", "<Nop>", opts)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -38,8 +32,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Diagnostics
-keymap("n", "<leader>d", "<cmd> lua vim.diagnostic.open_float()<cr>", opts)
+-- Open Nvim-Tree File Explorer
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
 ------------
 -- Visual --
 ------------
@@ -63,34 +58,27 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
----------------
--- Nvim-Tree --
----------------
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
--------------------
--- LSP-on-Attach --
--------------------
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+-----------------
+-- Diagnostics --
+-----------------
+vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-
+-------------------
+-- LSP-on-Attach --
+-------------------
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.lsp.inlay_hint.enable(ev.buf, true)
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        -- TODO: Compare keymaps with defaults
         -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        -- TODO: Compare keymaps with defaults
         local buff = { buffer = ev.buf }
+        vim.lsp.inlay_hint.enable(buff.buffer, true)
+        vim.bo[buff.buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buff)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buff)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, buff)

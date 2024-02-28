@@ -23,7 +23,6 @@ return {
             additional_vim_regex_highlighting = false,
         },
         indent = { enable = true },
-        -- List of parsers to ignore installation
         -- ignore_install = { "javascript" },
 
         autopairs = { enable = true },
