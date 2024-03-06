@@ -83,8 +83,7 @@ rustup default stable
 rustup toolchain install nightly
 rustup +nightly component add rust-src rust-analyzer-preview
 rustup component add rustfmt clippy
-cargo install cargo-watch
-cargo install ripgrep
+cargo install cargo-watch lsd ripgrep zoxide
 
 # Nitch
 cd "$nitch_dir"

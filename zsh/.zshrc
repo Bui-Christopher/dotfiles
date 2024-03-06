@@ -37,7 +37,15 @@ compinit
 alias cpr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
-alias gdb="arm-none-eabi-gdb" # While working with microbit
+alias gdb="arm-none-eabi-gdb" # While working with microbit on Arch
+
+alias shutdown="shutdown now"
+alias sleep="systemctl suspend"
+
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
 
 # Terminal CTRL+Left/Right Arrow Keys
 bindkey "^[[1;5C" forward-word
@@ -46,3 +54,5 @@ bindkey "^[[1;5D" backward-word
 source $HOME/.cargo/env
 export PATH=$PATH:/home/cookie/.spicetify
 export EDITOR=nvim
+
+eval "$(zoxide init zsh)"
