@@ -39,10 +39,14 @@ alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
 alias gdb="arm-none-eabi-gdb" # While working with microbit on Arch
 
+alias v="nvim"
+alias n="nvim"
 alias shutdown="shutdown now"
+alias off="shutdown now"
 alias sleep="systemctl suspend"
+alias bake="systemctl suspend"
 
-alias l='lsd -l'
+alias ll='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'

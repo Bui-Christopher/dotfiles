@@ -10,7 +10,7 @@
     },
     "clock": {
         "timezone": "America/Los_Angeles",
-        "format": "{:%b %d. %a. %H:%M %p}"
+        "format": "{:%b %d. %a. %I:%M %p}"
     },
     "pulseaudio": {
         "format-bluetooth": "{volume}% {icon}",

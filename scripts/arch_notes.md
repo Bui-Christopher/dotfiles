@@ -110,7 +110,7 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
-`./dotfiles/scripts/arch_setup.sh`
+`sudo ./dotfiles/scripts/arch_setup.sh`
 
 ## TODO's/Other Notes
 - Bluetooth 
@@ -124,13 +124,6 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
         # Also this one
         FastConnectable = true
         ```
-- auto_pull.sh
-    - Move into /usr/local/bin/ or ~/bin
-    - Use symbolic link instead (for versioning)
-
-- Emoji fonts
-    - noto-fonts-emoji
-
 - Steam
     - Without flatpak, there are bugs. Use this to fix CSGO:
     - ```
@@ -139,5 +132,11 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
       mv libtcmalloc_minimal.so.0 libtcmalloc_minimal.so.0.orig
       cp /usr/lib/libtcmalloc_minimal_debug.so.4.5.9 libtcmalloc_minimal.so.0
       ```
-
-
+- Git
+    - What is: `/.stow-local-ignore`
+- Pacman Tricks
+    - https://wiki.archlinux.org/title/Pacman/Tips_and_tricks 
+    - https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache
+- LockScreen
+    - Themes
+    - Convert to 12hour clock

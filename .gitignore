@@ -4,6 +4,7 @@ chromium/
 chromium-flags.conf
 dconf/
 discord
+htop/
 libreoffice/
 nvim/plugin/
 pavucontrol.ini

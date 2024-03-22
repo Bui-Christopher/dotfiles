@@ -50,7 +50,7 @@ chown -R "$username:$username" "$home/Downloads"
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
     docker-compose fakeroot feh gcc gzip htop iproute2 kitty make nim \
-    openssl pavucontrol pkg-config python tmux unzip vlc wget zip zsh
+    openssl pavucontrol pkg-config python rustup tmux unzip vlc wget zip zsh
 
 ## AUR
 git clone https://aur.archlinux.org/yay.git
@@ -59,7 +59,7 @@ cd yay
 sudo -u "$username" makepkg -sri --noconfirm
 cd ..
 rm -rf yay
-yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k webcord
+yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord
 # spotify spicetify-cli 
 # sudo chmod a+wr /opt/spotify
 # sudo chmod a+wr /opt/spotify/Apps -R
@@ -75,22 +75,26 @@ ln -sf "$config/git/.gitconfig" "$home/.gitconfig"
 cp "$config/zsh/.zshrc_home" "$home/.zshrc"
 chsh -s /bin/zsh
 
-# Rust
-curl -s https://sh.rustup.rs > rust.sh
-sh rust.sh -y && rm rust.sh
+# Configure Rust
 source $HOME/.cargo/env
 rustup default stable
 rustup toolchain install nightly
 rustup +nightly component add rust-src rust-analyzer-preview
 rustup component add rustfmt clippy
+## Install Rust Binaries
 cargo install cargo-watch lsd ripgrep zoxide
 
-# Nitch
+# User Binaries
+ln -sf "$config/scripts/autopull.sh" "/usr/local/bin/autopull"
+ln -sf "$config/scripts/versions.sh" "/usr/local/bin/vers"
+
+## Nitch
 cd "$nitch_dir"
 cp $nitch_config $nitch_dir/src/funcs/
 nimble build
 chmod +x nitch
 sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
+
 
 # Xorg/i3
 # sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \

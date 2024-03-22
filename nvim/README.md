@@ -39,3 +39,4 @@ TODO:
     - LSP keymappings
 - gitsigns.lua: Test different blame formats
 - Add `nvim-cmp` to `crates.lua`
+- `trim.nvim` remove/detect trailing spaces
