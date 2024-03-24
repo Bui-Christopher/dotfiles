@@ -42,14 +42,17 @@ alias gdb="arm-none-eabi-gdb" # While working with microbit on Arch
 alias v="nvim"
 alias n="nvim"
 alias shutdown="shutdown now"
-alias off="shutdown now"
+alias off="systemctl poweroff"
 alias sleep="systemctl suspend"
 alias bake="systemctl suspend"
 
 alias ll='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
-alias lt='lsd --tree'
+# alias lt='lsd --tree'
+alias lt='_lt() {
+    lsd --tree --depth "$1"
+};  _lt'
 
 # Terminal CTRL+Left/Right Arrow Keys
 bindkey "^[[1;5C" forward-word

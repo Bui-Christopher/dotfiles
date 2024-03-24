@@ -22,5 +22,17 @@
     - https://wiki.archlinux.org/title/Pacman/Tips_and_tricks
     - https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache
 
-- Mount other internal drive (no boot)
-- Sccache script
+- Internal Drive
+    - Auto mount script
+- Rust
+    - Sccache script
+
+- sddm
+    - Theme setup script
+    - ScreenLayout 'xrandr'
+    - Hyprland
+        - https://bbs.archlinux.org/viewtopic.php?id=289612
+        - /var/lib/sddm/.config/hypr/
+        - /etc/sddm.conf.d/10-wayland.conf
+
+- wezterm config
