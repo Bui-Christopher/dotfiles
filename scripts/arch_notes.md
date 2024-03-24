@@ -1,5 +1,5 @@
 # Arch Install
-This is an example of a step-by-step process of installing Arch Linux. These include notes and TODO's.
+This is an example of a step-by-step process of installing Arch Linux.
 
 ## Arch Install Notes
 ### Internet
@@ -112,31 +112,3 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 
 `sudo ./dotfiles/scripts/arch_setup.sh`
 
-## TODO's/Other Notes
-- Bluetooth 
-    - systemctl enable bluetooth.service
-    - systemctl start bluetooth.service
-    - Edit: `/etc/bluetooth/main.conf`
-        ```
-        [Policy]
-        AutoEnable=true
-
-        # Also this one
-        FastConnectable = true
-        ```
-- Steam
-    - Without flatpak, there are bugs. Use this to fix CSGO:
-    - ```
-      yay -S gperftools 
-      cd <path/to>/steamapps/common/Counter-Strike\ Global\ Offensive/bin/linux64 
-      mv libtcmalloc_minimal.so.0 libtcmalloc_minimal.so.0.orig
-      cp /usr/lib/libtcmalloc_minimal_debug.so.4.5.9 libtcmalloc_minimal.so.0
-      ```
-- Git
-    - What is: `/.stow-local-ignore`
-- Pacman Tricks
-    - https://wiki.archlinux.org/title/Pacman/Tips_and_tricks 
-    - https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache
-- LockScreen
-    - Themes
-    - Convert to 12hour clock

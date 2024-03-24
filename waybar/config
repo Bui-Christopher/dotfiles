@@ -3,7 +3,7 @@
     "height": 35,
     "spacing": 4,
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "temperature", "clock"],
+    "modules-right": ["pulseaudio", "clock"],
     "tray": {
         "icon-size": 30,
         "spacing": 20

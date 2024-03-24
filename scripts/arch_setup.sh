@@ -81,8 +81,22 @@ rustup default stable
 rustup toolchain install nightly
 rustup +nightly component add rust-src rust-analyzer-preview
 rustup component add rustfmt clippy
+# Optimize to current building platform
+config="[target.x86_64-unknown-linux-gnu]
+rustflags = [\"-C\", \"target-cpu=native\"]"
+
+# Check if the config file exists
+if [ -f ~/.cargo/config ]; then
+    # Append the configuration to the file
+    echo "$config" >> ~/.cargo/config
+    echo "Configuration appended to ~/.cargo/config"
+else
+    # Create the config file and append the configuration
+    echo "$config" > ~/.cargo/config
+    echo "Created ~/.cargo/config and appended configuration"
+fi
 ## Install Rust Binaries
-cargo install cargo-watch lsd ripgrep zoxide
+cargo install cargo-watch lsd ripgrep sccache zoxide
 
 # User Binaries
 ln -sf "$config/scripts/autopull.sh" "/usr/local/bin/autopull"
