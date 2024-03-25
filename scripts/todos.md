@@ -24,9 +24,16 @@
 
 - Internal Drive
     - Auto mount script
-- Rust
-    - Sccache script
+    -
+    ```
+    sudo blkid
+    sudo nvim /etc/fstab
+    UUID=<UUID> /mnt/archive ext4 defaults 0 0
+    ```
 
+- Rust
+    - bin $PATH
+    - sccache
 - sddm
     - Theme setup script
     - ScreenLayout 'xrandr'
@@ -34,5 +41,6 @@
         - https://bbs.archlinux.org/viewtopic.php?id=289612
         - /var/lib/sddm/.config/hypr/
         - /etc/sddm.conf.d/10-wayland.conf
-
+- gpg
+- ssh
 - wezterm config

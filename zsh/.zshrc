@@ -58,8 +58,8 @@ alias lt='_lt() {
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-source $HOME/.cargo/env
-export PATH=$PATH:/home/cookie/.spicetify
 export EDITOR=nvim
+# export PATH=$PATH:/home/cookie/.spicetify
+source $HOME/.cargo/env
 
 eval "$(zoxide init zsh)"

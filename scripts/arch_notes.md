@@ -17,6 +17,9 @@ This is an example of a step-by-step process of installing Arch Linux.
 `fdisk -l`
 
 `fdisk /dev/nvme0n1`
+ - `n`: Create new partition
+ - `t`: Change partition type
+ - `d`: Delete a partition
 
 Create a boot drive
 - `mkfs.fat -F 32 /dev/nvme0n1p1`
@@ -42,7 +45,7 @@ Create a mount drive
 #### Packages 
 `arch-chroot /mnt`
 
-`pacman -S --noconfirm networkmanager git kitty neovim sudo grub efibootmgr`
+`pacman -S --noconfirm networkmanager git neovim sudo grub efibootmgr base-devel`
 
 ### Preferences
 
@@ -85,13 +88,10 @@ Run: `passwd`
 
 ### Bootloader
 [Grub Wiki](https://wiki.archlinux.org/title/GRUB)
-
-`pacman -S grub efibootmgr`
-
 `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
+- Multiple OS
 Within: `/etc/default/grub`
-
 Modify: `GRUB_DISABLE_OS_PROBER=false`
 
 Run: `grub-mkconfig -o /boot/grub/grub.cfg`
@@ -99,16 +99,13 @@ Run: `grub-mkconfig -o /boot/grub/grub.cfg`
 ### Network Manager
 `systemctl enable NetworkManager.service`
 
-`systemctl start NetworkManager.service`
+### Final Setup
+`exit`
+`reboot`
 
 `nmcli device wifi list`
-
 `nmcli device wifi connect SSID password PASSWORD`
-
-### Final Setup
-`reboot`
 
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
-`sudo ./dotfiles/scripts/arch_setup.sh`
-
+`./dotfiles/scripts/arch_setup.sh`
