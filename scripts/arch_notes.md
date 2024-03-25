@@ -45,7 +45,7 @@ Create a mount drive
 #### Packages 
 `arch-chroot /mnt`
 
-`pacman -S --noconfirm networkmanager git neovim sudo grub efibootmgr base-devel`
+`pacman -S --noconfirm base-devel efibootmgr git grub neovim networkmanager sudo`
 
 ### Preferences
 
@@ -55,22 +55,23 @@ Create a mount drive
 `hwclock --systohc`
 
 #### Localization
-Edit: `/etc/locale.gen`
+- Modify:
+    - `/etc/locale.gen`
+    - `en_US.UTF-8`
+- Run:
+    - `locale-gen`
 
-Uncomment: `en_US.UTF-8`
-
-Run: `locale-gen`
-
-Create: `/etc/locale.conf`
-- Add `LANG=en_US.UTF-8`
+- Create:
+    - `/etc/locale.conf`
+    - `LANG=en_US.UTF-8`
 
 #### Hostname
-Create: `/etc/hostname`
-
-Write: `oven`
+- Create
+    - `/etc/hostname`
+    - `oven`
 
 #### Password
-Run: `passwd`
+`passwd`
 
 #### Add User
 `useradd -m cookie`
@@ -88,24 +89,36 @@ Run: `passwd`
 
 ### Bootloader
 [Grub Wiki](https://wiki.archlinux.org/title/GRUB)
+
 `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
-- Multiple OS
-Within: `/etc/default/grub`
-Modify: `GRUB_DISABLE_OS_PROBER=false`
+#### Multiple OS
+- Modify:
+    - `/etc/default/grub`
+    - `GRUB_DISABLE_OS_PROBER=false`
 
-Run: `grub-mkconfig -o /boot/grub/grub.cfg`
+- Run:
+    - `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Network Manager
 `systemctl enable NetworkManager.service`
 
+### Mount Additional Drives
+    ```
+    blkid | grep sda1 >> /etc/fstab
+    UUID=<UUID> /mnt/archive ext4 defaults 0 0
+    ```
+
 ### Final Setup
 `exit`
+
 `reboot`
 
 `nmcli device wifi list`
+
 `nmcli device wifi connect SSID password PASSWORD`
 
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
+`ln -s /home/cookie/.config /mnt/archive/personal/dotfiles`

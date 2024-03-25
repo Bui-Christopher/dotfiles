@@ -26,8 +26,7 @@
 set -e
 
 export username="cookie"
-export home="/home/${username}"
-export config="$home/.config"
+export config_dir="$HOME/.config"
 
 # Note: "$(cd "$(dirname "$0")" && pwd)" cd to running script directory
 export scripts_dir="$(cd "$(dirname "$0")" && pwd)"
@@ -36,13 +35,13 @@ export nitch_dir="${config}/nitch"
 export nitch_config="${config}/scripts/nitch/drawing.nim"
 
 # Folders and Permissions
-mv "$dotfiles_dir/" "$config"
-mkdir -p "$home/Documents"
-mkdir -p "$home/Downloads"
+mv "$dotfiles_dir/" "$config_dir"
+mkdir -p "$HOME/Documents"
+mkdir -p "$HOME/Downloads"
 
-chown -R "$username:$username" "$config"
-chown -R "$username:$username" "$home/Documents"
-chown -R "$username:$username" "$home/Downloads"
+chown -R "$username:$username" "$config_dir"
+chown -R "$username:$username" "$HOME/Documents"
+chown -R "$username:$username" "$HOME/Downloads"
 
 # Official Packages
 sudo pacman -Syu
@@ -78,16 +77,23 @@ rustup +nightly component add rust-src rust-analyzer-preview
 rustup component add rustfmt clippy
 
 # Cargo
-export cargo_dir="$home/.cargo"
+export cargo_dir="$HOME/.cargo"
 export cargo_env="$cargo_dir/env"
 export cargo_config="$cargo_dir/config"
 mkdir -p "$cargo_dir"
 
-# Cargo Binaries Path
+# Cargo Binaries
 touch "$cargo_env"
-# tmp=""
-# echo "$tmp" > "$cargo_env"
-source $home/.cargo/env
+tmp='#!/bin/sh
+case ":${PATH}:" in
+    *:"$HOME/.cargo/bin":*)
+        ;;
+    *)
+        export PATH="$HOME/.cargo/bin:$PATH"
+        ;;
+esac'
+echo "$tmp" > "$cargo_env"
+source "$cargo_env"
 
 # Optimize for Linux: musl/gnu?
 touch "$cargo_config"
@@ -99,18 +105,18 @@ echo "$tmp" > "$cargo_config"
 cargo install cargo-watch lsd ripgrep sccache zoxide
 
 # Convenient Scripts
-sudo ln -sf "$config/scripts/autopull.sh" "/usr/local/bin/autopull"
-sudo ln -sf "$config/scripts/vers.sh" "/usr/local/bin/vers"
-chmod +x $config/scripts/autopull.sh
-chmod +x $config/scripts/vers.sh
+sudo ln -sf "$config_dir/scripts/autopull.sh" "/usr/local/bin/autopull"
+sudo ln -sf "$config_dir/scripts/vers.sh" "/usr/local/bin/vers"
+chmod +x $config_dir/scripts/autopull.sh
+chmod +x $config_dir/scripts/vers.sh
 
 # Git
-cd "$config"
+cd "$config_dir"
 git submodule update --init --recursive
-ln -sf "$config/git/.gitconfig" "$home/.gitconfig"
+ln -sf "$config_dir/git/.gitconfig" "$HOME/.gitconfig"
 
 # Zsh
-cp "$config/zsh/.zshrc_home" "$home/.zshrc"
+cp "$config_dir/zsh/.zshrc_home" "$HOME/.zshrc"
 chsh -s /bin/zsh
 
 # Nitch
@@ -138,7 +144,7 @@ sudo systemctl enable sddm
 # TODO Have bluetooth.service start prior to Display Manager
 # sudo systemctl enable bluetooth.service
 
-cd $config
+cd $config_dir
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
 
 reboot
