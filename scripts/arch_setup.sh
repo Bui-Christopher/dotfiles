@@ -47,7 +47,8 @@ chown -R "$username:$username" "$HOME/Downloads"
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
     docker-compose fakeroot feh gcc gzip htop iproute2 kitty make nim openssh openssl \
-    pavucontrol pkg-config pulseaudio python rustup tmux unzip vlc wezterm wget zip zsh
+    pavucontrol pkg-config pulseaudio pulseaudio-bluetooth python rustup tmux unzip \
+    vlc wezterm wget zip zsh
 
 # AUR Helper
 git clone https://aur.archlinux.org/yay.git
@@ -136,9 +137,10 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 # Wayland/Hyprland 
 yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
     hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
-    dunst waybar hyprshot sddm
+    dunst waybar hyprshot
 
 # sddm
+yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
 sudo systemctl enable sddm
 
 # TODO Have bluetooth.service start prior to Display Manager

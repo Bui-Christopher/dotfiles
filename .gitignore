@@ -1,9 +1,4 @@
-audacity/
-cef_user_data
 chromium/
-chromium-flags.conf
-dconf/
-discord
 htop/
 libreoffice/
 nvim/plugin/
@@ -11,6 +6,5 @@ pavucontrol.ini
 pulse
 spicetify
 spotify
-user-dirs.*
 WebCord/
 zsh/.zcompdump
