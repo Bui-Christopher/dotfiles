@@ -1,4 +1,5 @@
 chromium/
+dconf/
 htop/
 libreoffice/
 nvim/plugin/
@@ -8,3 +9,4 @@ spicetify
 spotify
 WebCord/
 zsh/.zcompdump
+mimeapps.*

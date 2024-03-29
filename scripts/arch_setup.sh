@@ -29,10 +29,10 @@ export username="cookie"
 export config_dir="$HOME/.config"
 
 # Note: "$(cd "$(dirname "$0")" && pwd)" cd to running script directory
-export scripts_dir="$(cd "$(dirname "$0")" && pwd)"
-export dotfiles_dir="$(cd "$scripts_dir/.." && pwd)"
-export nitch_dir="${config}/nitch"
-export nitch_config="${config}/scripts/nitch/drawing.nim"
+export running_script_dir="$(cd "$(dirname "$0")" && pwd)"
+export dotfiles_dir="$(cd "$running_script_dir/.." && pwd)"
+export nitch_dir="${config_dir}/nitch"
+export nitch_config="${config_dir}/scripts/nitch/drawing.nim"
 
 # Folders and Permissions
 mv "$dotfiles_dir/" "$config_dir"
@@ -127,24 +127,23 @@ nimble build
 chmod +x nitch
 sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
-# Xorg/i3
-# sudo pacman -S --noconfirm xorg-server xorg-xinit xsel i3-wm dmenu xorg-xrandr \
-#     arandr polybar lightdm lightdm-gtk-greeter
+# Display
 
-# lightdm
-# sudo systemctl enable lightdm
+# Xorg/i3
+# yay -S xorg-server xorg-xinit xsel i3-wm xorg-xrandr \
+#     arandr polybar rofi
 
 # Wayland/Hyprland 
 yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
     hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
     dunst waybar hyprshot
 
-# sddm
+# Login Page - sddm
 yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
 sudo systemctl enable sddm
 
 # TODO Have bluetooth.service start prior to Display Manager
-# sudo systemctl enable bluetooth.service
+sudo systemctl enable bluetooth.service
 
 cd $config_dir
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 

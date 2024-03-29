@@ -114,11 +114,15 @@ Create a mount drive
 
 `reboot`
 
+#### Internet
 `nmcli device wifi list`
 
 `nmcli device wifi connect SSID password PASSWORD`
 
+#### Arch Setup Script
 `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
 `./dotfiles/scripts/arch_setup.sh`
+
+#### Additional Internal Mounts
 `ln -s /home/cookie/.config /mnt/archive/personal/dotfiles`
