@@ -58,7 +58,6 @@ sudo -u "$username" makepkg -sri --noconfirm
 cd ..
 rm -rf yay
 
-# TODO: Double check these packages
 # AUR Packages
 yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord
 
