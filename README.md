@@ -33,7 +33,7 @@
 <!-- sddm -->
 
 ## Todo
-- [ ] [SDDM](https://github.com/sddm/sddm)
+- [ ] SDDM
     - [ ] Theme: [Chamber of Secrets](https://github.com/Carmoruda/sddm-hogwarts-themes)
     - [ ] [Dual Monitor](https://blog.victormendonca.com/2018/06/29/how-to-fix-sddm-on-multiple-screens/)
 - [ ] Spotify
@@ -65,6 +65,7 @@
         - [ ] hostname/user (`oven`/`cookie`)
         - [ ] Timezone (`America/Los_Angeles`)
         - [ ] `export EDITOR=nvim`
+        - [ ] Is wheel necessary?
         - [ ] Mounting of Additional Drives/Internal Mounts
     - [ ] Add note that it implies grub
     - [ ] Labels when partitioning disks
@@ -88,13 +89,14 @@
         - [ ] username
         - [ ] script paths
     - [ ] lsd, kitty, i3, screenlayout
-    - [ ] Double check packages
+    - [ ] Packages
         - [ ] `noto-fonts-emoji`
         - [ ] `ttf-meslo-nerd-font-powerlevel10k`
         - [ ] `webcord`
         - [ ] `spotify`/`spicetify`
-        - [ ]
+        - [ ] glow (Mark Down Reader)
     - [ ] Split Script
         - [ ] Packages
         - [ ] Rust/Cargo/Cargo Binaries
         - [ ] Desktop Environment - (Xorg/i3)/(wayland/hyprland)
+- [ ] NixOS Install Notes
