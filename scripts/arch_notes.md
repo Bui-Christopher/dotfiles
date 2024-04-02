@@ -3,56 +3,58 @@ This is an example of a step-by-step process of installing Arch Linux.
 
 ## Arch Install Notes
 ### Internet
-`iwctl`
+- `iwctl`
 
-`device list`
+- `device list`
 
-`station wlan0 scan`
+- `station wlan0 scan`
 
-`station wlan0 get-networks`
+- `station wlan0 get-networks`
 
-`station wlan0 connect SSID`
+- `station wlan0 connect SSID`
 
 ### Partition Disks
-`fdisk -l`
+- `fdisk -l`
 
-`fdisk /dev/nvme0n1`
- - `n`: Create new partition
- - `t`: Change partition type
- - `d`: Delete a partition
+Select Disk to Partition
+- `fdisk /dev/nvme0n1`
+    - `n`: Create new partition
+    - `t`: Change partition type
+    - `d`: Delete a partition
 
 Create a boot drive
 - `mkfs.fat -F 32 /dev/nvme0n1p1`
 - +512M 
 - EFI System
+- fatlabel /dev/nvme0n1p1 BOOT
 
 Create a mount drive
-- `mkfs.ext4 /dev/nvme0n1p2`
+- `mkfs.ext4 /dev/nvme0n1p2 -L ARCH`
 - Linux filesystem
 
 ### Mount Drives
-`mount /dev/nvme0n1p2 /mnt`
+- `mount /dev/nvme0n1p2 /mnt`
 
-`mount --mkdir /dev/nvme0n1p1 /mnt/boot`
+- `mount --mkdir /dev/nvme0n1p1 /mnt/boot`
 
 ### Install Linux and Packages
 
 #### Linux
-`pacstrap -K /mnt base linux linux-firmware`
+- `pacstrap -K /mnt base linux linux-firmware`
 
-`genfstab -U /mnt >> /mnt/etc/fstab`
+- `genfstab -U /mnt >> /mnt/etc/fstab`
 
 #### Packages 
-`arch-chroot /mnt`
+- `arch-chroot /mnt`
 
-`pacman -S --noconfirm base-devel efibootmgr git grub neovim networkmanager sudo`
+- `pacman -S --noconfirm base-devel efibootmgr git grub neovim networkmanager sudo`
 
 ### Preferences
 
 ##### Timezone/Clock
-`ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime`
+- `ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime`
 
-`hwclock --systohc`
+- `hwclock --systohc`
 
 #### Localization
 - Modify:
@@ -71,26 +73,22 @@ Create a mount drive
     - `oven`
 
 #### Password
-`passwd`
+- `passwd`
 
 #### Add User
-`useradd -m cookie`
+- `useradd -m cookie`
 
-`passwd cookie`
-
-`usermod -aG wheel cookie`
+- `passwd cookie`
 
 ##### SUDO Permissions
-`export EDITOR=nvim`
+- `export EDITOR=nvim`
 
-`visudo`
+- `visudo`
 
-`cookie ALL=(ALL) ALL`
+- `cookie ALL=(ALL) ALL`
 
 ### Bootloader
-[Grub Wiki](https://wiki.archlinux.org/title/GRUB)
-
-`grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
+- `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
 #### Multiple OS
 - Modify:
@@ -101,28 +99,26 @@ Create a mount drive
     - `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Network Manager
-`systemctl enable NetworkManager.service`
+- `systemctl enable NetworkManager.service`
 
 ### Mount Additional Drives
-    ```
     blkid | grep sda1 >> /etc/fstab
     UUID=<UUID> /mnt/archive ext4 defaults 0 0
-    ```
 
 ### Final Setup
-`exit`
+- `exit`
 
-`reboot`
+- `reboot`
 
 #### Internet
-`nmcli device wifi list`
+- `nmcli device wifi list`
 
-`nmcli device wifi connect SSID password PASSWORD`
+- `nmcli device wifi connect SSID password PASSWORD`
 
 #### Arch Setup Script
-`git clone https://github.com/Bui-Christopher/dotfiles.git`
+- `git clone https://github.com/Bui-Christopher/dotfiles.git`
 
-`./dotfiles/scripts/arch_setup.sh`
+- `./dotfiles/scripts/arch_setup.sh`
 
 #### Additional Internal Mounts
-`ln -s /home/cookie/.config /mnt/archive/personal/dotfiles`
+- `ln -s /home/cookie/.config /mnt/archive/personal/dotfiles`
