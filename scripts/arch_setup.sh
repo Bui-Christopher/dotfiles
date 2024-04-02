@@ -47,8 +47,8 @@ chown -R "$username:$username" "$HOME/Downloads"
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
     docker-compose fakeroot feh gcc gzip htop iproute2 kitty make nim openssh openssl \
-    pavucontrol pkg-config pulseaudio pulseaudio-bluetooth python rustup tmux unzip \
-    vlc wezterm wget zip zsh
+    pavucontrol pkg-config pulseaudio pulseaudio-bluetooth polkit-kde-agent python rustup \
+    tmux unzip vlc wezterm wget zip zsh
 
 # AUR Helper
 git clone https://aur.archlinux.org/yay.git
@@ -65,6 +65,9 @@ yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord
 # spotify spicetify-cli 
 # sudo chmod a+wr /opt/spotify
 # sudo chmod a+wr /opt/spotify/Apps -R
+
+# Bluetooth
+sudo systemctl enable bluetooth.service
 
 # Docker
 sudo systemctl enable docker
@@ -128,21 +131,23 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
 # Display
 
+# NVidia
+# yay -S nvidia
+
 # Xorg/i3
 # yay -S xorg-server xorg-xinit xsel i3-wm xorg-xrandr \
 #     arandr polybar rofi
 
+# AMD
+yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon
+
 # Wayland/Hyprland 
-yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon fuzzel \
-    hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber polkit-kde-agent \
+yay -S fuzzel hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber \
     dunst waybar hyprshot
 
 # Login Page - sddm
 yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
 sudo systemctl enable sddm
-
-# TODO Have bluetooth.service start prior to Display Manager
-sudo systemctl enable bluetooth.service
 
 cd $config_dir
 git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 

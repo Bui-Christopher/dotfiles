@@ -26,7 +26,7 @@ Create a boot drive
 - `mkfs.fat -F 32 /dev/nvme0n1p1`
 - +512M 
 - EFI System
-- fatlabel /dev/nvme0n1p1 BOOT
+- `fatlabel /dev/nvme0n1p1 BOOT`
 
 Create a mount drive
 - `mkfs.ext4 /dev/nvme0n1p2 -L ARCH`

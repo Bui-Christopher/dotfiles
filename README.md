@@ -67,6 +67,7 @@
           # │   ├── scripts
           # │   └── README.md
           ```
+        - [ ] Have it re-runnable
         - [ ] Remove hardcoded variables
             - [ ] username
             - [ ] script paths
