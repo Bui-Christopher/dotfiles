@@ -98,6 +98,8 @@
         - [ ] Sync with Hyprland
     - [ ] Rust
         - [ ] [Sccache](https://wiki.archlinux.org/title/rust#sccache)
+        - [ ] `vcs = "none"`
+        - [ ] [rustfmt](https://github.com/rust-lang/rustfmt/blob/master/Configurations.md)
     - [ ] SDDM
         - [ ] Theme: [Chamber of Secrets](https://github.com/Carmoruda/sddm-hogwarts-themes)
         - [ ] [Dual Monitor](https://blog.victormendonca.com/2018/06/29/how-to-fix-sddm-on-multiple-screens/)
