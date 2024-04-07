@@ -93,6 +93,11 @@
             - [ ] AutoEnable
             - [ ] Discoverable on Startup
             - [ ] FastConnectable
+            - [ ] Disable Headset (fast A2DP)
+              ```bash
+              [General]
+              Disable=Headset
+              ```
     - [ ] i3
         - [ ] `nm-applet`: [Possible Fix](https://github.com/polybar/polybar/issues/1355)
         - [ ] Sync with Hyprland

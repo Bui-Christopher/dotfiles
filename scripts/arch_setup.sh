@@ -7,7 +7,6 @@
 # sudo
 # useradd -m cookie ...
 
-# 
 # ├── dotfiles
 # │   ├── git
 # │   ├── scripts
@@ -72,6 +71,9 @@ sudo systemctl enable bluetooth.service
 # Docker
 sudo systemctl enable docker
 sudo usermod -aG docker "$username"
+
+# Bluetooth
+sudo systemctl enable bluetooth.service
 
 # Rust
 rustup default stable
