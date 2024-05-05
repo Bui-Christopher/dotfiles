@@ -23,7 +23,6 @@ return {
             lsp_doc_border = false,       -- add a border to hover docs and signature help
         },
         -- When doing sed, the popupmenu is in the way
-        -- :%s/rename/tmp/gc
         views = {
             confirm = {
                 backend = "split",

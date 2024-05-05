@@ -34,6 +34,8 @@ compinit
 # fi
 
 # Custom alias
+
+## Linux Stuff
 alias cpr="cp -R"	# Copy recursively, including hidden files
 alias rmr="rm -rf"	# Delete recursively, including hidden files
 alias ls="ls --color"
@@ -45,7 +47,8 @@ alias shutdown="shutdown now"
 alias off="systemctl poweroff"
 alias sleep="systemctl suspend"
 alias bake="systemctl suspend"
-
+alias dsr='if [ "$(docker ps -aq)" ]; then docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker volume rm $(docker volume ls -q); else echo "No running containers to stop."; fi'
+alias cm='cargo make'
 alias ll='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'

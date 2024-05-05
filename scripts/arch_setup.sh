@@ -45,9 +45,9 @@ chown -R "$username:$username" "$HOME/Downloads"
 # Official Packages
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
-    docker-compose fakeroot feh gcc gzip htop iproute2 kitty make nim openssh openssl \
-    pavucontrol pkg-config pulseaudio pulseaudio-bluetooth polkit-kde-agent python rustup \
-    tmux unzip vlc wezterm wget zip zsh
+    docker-compose fakeroot feh gcc gzip htop iproute2 kitty less make nim openssh \
+    openssl pavucontrol pkg-config pulseaudio pulseaudio-bluetooth polkit-kde-agent \
+    python rustup tmux tree unzip vlc wezterm wget zip zsh
 
 # AUR Helper
 git clone https://aur.archlinux.org/yay.git
@@ -84,7 +84,7 @@ rustup component add rustfmt clippy
 # Cargo
 export cargo_dir="$HOME/.cargo"
 export cargo_env="$cargo_dir/env"
-export cargo_config="$cargo_dir/config"
+export cargo_config="$cargo_dir/config.toml"
 mkdir -p "$cargo_dir"
 
 # Cargo Binaries

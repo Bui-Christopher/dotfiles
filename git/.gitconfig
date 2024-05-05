@@ -8,7 +8,7 @@
     ui = auto 
 [core]
 	editor = nvim 
-	pager = cat
+	pager = less
 [commit]
 	gpgsign = true
 [gpg]
@@ -20,3 +20,5 @@
     ol = log --oneline -10
 
     dir = "!sh -c 'git diff $(git branch --show-current) $(git branch --contains $(git merge-base HEAD main features) | grep -v \"^\\*\") --name-only | cut -d'/' -f1 | sort -u'"
+[pager]
+	diff = true

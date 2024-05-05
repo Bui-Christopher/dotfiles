@@ -1,23 +1,3 @@
-vim.g.rustaceanvim = {
-    server = {
-        default_settings = {
-            ["rust-analyzer"] = {
-                cargo = {
-                    buildScripts = {
-                        enable = true,
-                    },
-                },
-                checkOnSave = {
-                    command = "clippy",
-                },
-                rustfmt = {
-                    extraArgs = { "+nightly" },
-                },
-            },
-        },
-    },
-}
-
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -34,6 +14,8 @@ return {
         end
 
         -- Configure each LSP server
+        lspconfig["taplo"].setup {} -- toml
+        lspconfig["bashls"].setup {}
         lspconfig["pyright"].setup {}
         lspconfig["lua_ls"].setup({
             settings = {
@@ -47,7 +29,6 @@ return {
                 }
             }
         })
-        -- Do nothing, instead rely on rust-tools
         lspconfig["rust-analyzer"] = {}
     end,
 }

@@ -20,9 +20,11 @@ return {
 
         mason_lspconfig.setup({
             ensure_installed = {
+                "bashls",
                 "lua_ls",
                 "pyright",
-                "rust_analyzer"
+                "rust_analyzer",
+                "taplo"
             },
             automatic_installation = true,
         })

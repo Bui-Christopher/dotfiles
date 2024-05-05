@@ -27,5 +27,17 @@ return {
             function() require("telescope.builtin").grep_string({}) end,
             desc = "Grep String",
         },
-    }
+    },
+    config = function()
+        require('telescope').setup {
+            extensions = {
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown {
+                        -- even more opts
+                    }
+                }
+            }
+        }
+        require('telescope').load_extension("ui-select")
+    end,
 }

@@ -9,16 +9,27 @@ return {
             delay = 0000,
             ignore_whitespace = false,
         },
-        -- TODO: Play with blame formatter
-        current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-        -- TODO: Find out whether border = "rounded" or "minimal" is preferred
+        current_line_blame_formatter = "<author>, <author_time:%m-%d-%Y> - <summary>",
         preview_config = {
-            -- Options passed to nvim_open_win
             border = "rounded",
             style = "minimal",
             relative = "cursor",
             row = 0,
-            col = 1,
+            col = 3,
         },
     },
+    keys = {
+        {
+            "]g",
+            mode = { "n", "v" },
+            function() require("gitsigns.actions").next_hunk({}) end,
+            desc = "Jump to next git hunk",
+        },
+        {
+            "[g",
+            mode = { "n", "v" },
+            function() require("gitsigns.actions").prev_hunk({}) end,
+            desc = "Jump to prev git hunk",
+        },
+    }
 }

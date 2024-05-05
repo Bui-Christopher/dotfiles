@@ -7,36 +7,42 @@ return {
     lazy = bool,
     event = "some_event",
     cmd = { "some_command" },
-    keys = {                      -- this is where you define your keymaps 
+    keys = {                      -- this is where you define your keymaps
                                   -- (also optional)
-      
+
     },
-    opts = {                      -- here you pass the options you want set 
-                                  -- for the plugin and these are passed as 
+    opts = {                      -- here you pass the options you want set
+                                  -- for the plugin and these are passed as
                                   -- a table to `Plugin.config` which sets
                                   -- up the plugin
     },
 
-    -- here you override the default config 
-    -- function of the plugin, if you want to 
+    -- here you override the default config
+    -- function of the plugin, if you want to
     -- achieve a different implementation than
     -- default config
     -- or config = true,
 
     config = function(_, opts)
-        require("some_plugin").setup(opts)       
-    end,                                         
+        require("some_plugin").setup(opts)
+    end,
 }
 ```
 
 TODO:
-- Add notes for fugitive
+- Add
+    - ToggleTerm
+    - CoPilot
+    - Conform (formatter)
+    - folke/edgy
+    - scrollbar
+    - greeter
+    - BufDel
 - Clean up
     - `nvim-cmp.lua`
     - `autocmds.lua`
 - Practice
     - `nvim-ufo` (folding)
-    - LSP keymappings
-- gitsigns.lua: Test different blame formats
-- Add `nvim-cmp` to `crates.lua`
-- `trim.nvim` remove/detect trailing spaces
+    - LSP Reading Functions
+    - 'nvim-lightbulb'
+    - Fugitive

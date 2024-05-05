@@ -1,4 +1,4 @@
-local parsers = { "bash", "c", "cpp", "git_rebase", "gitignore", "go", "json", "lua", "markdown", "python", "rust",
+local parsers = { "bash", "c", "cpp", "git_rebase", "gitignore", "go", "json", "lua", "markdown", "python", "rust", "toml",
     "yaml" }
 return {
     "nvim-treesitter/nvim-treesitter",
