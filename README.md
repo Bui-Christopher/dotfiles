@@ -98,6 +98,10 @@
               [General]
               Disable=Headset
               ```
+            - [ ] Keychron battery life
+              ```bash
+              upower --dump | grep keyboard -A 7
+              ```
     - [ ] i3
         - [ ] `nm-applet`: [Possible Fix](https://github.com/polybar/polybar/issues/1355)
         - [ ] Sync with Hyprland
