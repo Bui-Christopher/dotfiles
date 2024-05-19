@@ -61,7 +61,7 @@ rm -rf yay
 yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord
 
 # Spotify
-# spotify spicetify-cli 
+# spotify spicetify-cli
 # sudo chmod a+wr /opt/spotify
 # sudo chmod a+wr /opt/spotify/Apps -R
 
@@ -143,7 +143,7 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 # AMD
 yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon
 
-# Wayland/Hyprland 
+# Wayland/Hyprland
 yay -S fuzzel hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber \
     dunst waybar hyprshot
 
@@ -152,6 +152,6 @@ yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
 sudo systemctl enable sddm
 
 cd $config_dir
-git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git 
+git remote set-url origin git@github.com:Bui-Christopher/dotfiles.git
 
 reboot
