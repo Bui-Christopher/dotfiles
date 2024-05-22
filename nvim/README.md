@@ -34,10 +34,10 @@ TODO:
     - ToggleTerm
     - CoPilot
     - Conform (formatter)
-    - folke/edgy
     - scrollbar
     - greeter
     - BufDel
+    - neotest
 - Clean up
     - `nvim-cmp.lua`
     - `autocmds.lua`

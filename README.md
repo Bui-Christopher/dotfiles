@@ -87,19 +87,19 @@
                 - [ ] evdi-git
                 - [ ] displaylink
 - [ ] NixOS
-        - [ ] Applications
-            - [ ] Firefox/Chrome
-            - [ ] LibreOffice
-            - [ ] VLC
-            - [ ] Hyprland
-            - [ ] Discord
-            - [ ] Bluetooth
-            - [ ] Dev Env
-                - [ ] Neovim
-                - [ ] Rust/Python
-                - [ ] Git
-                - [ ] Docker
-                - [ ] Zsh
+    - [ ] Applications
+        - [ ] Firefox/Chrome
+        - [ ] LibreOffice
+        - [ ] VLC
+        - [ ] Hyprland
+        - [ ] Discord
+        - [ ] Bluetooth
+        - [ ] Dev Env
+            - [ ] Neovim
+            - [ ] Rust/Python
+            - [ ] Git
+            - [ ] Docker
+            - [ ] Zsh
 - [ ] Packages
     - [ ] Bluetooth
         - [ ] [Settings](https://wiki.archlinux.org/title/bluetooth#Default_adapter_power_state)
