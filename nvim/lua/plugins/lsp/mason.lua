@@ -23,8 +23,8 @@ return {
                 "bashls",
                 "lua_ls",
                 "pyright",
-                "rust_analyzer",
-                "taplo"
+                -- "rust_analyzer",
+                -- "taplo"
             },
             automatic_installation = true,
         })
