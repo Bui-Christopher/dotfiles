@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- TODO: Compare keymaps with defaults
         local buff = { buffer = ev.buf }
-        -- vim.lsp.inlay_hint.enable(buff.buffer, true)
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.bo[buff.buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buff)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buff)

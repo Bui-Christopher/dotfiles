@@ -131,3 +131,8 @@
         - [ ] [Custom Config](https://wezfurlong.org/wezterm/config/files.html)
     - [ ] zsh
         - [ ] Add pacman alias [Pacman Tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
+
+
+Rename bluetooth example
+bt-device --set macaddress|name Alias "New Name"
+bt-device --set C4:30:18:5F:EB:90 Alias "LG 38 Monitor"
