@@ -73,20 +73,20 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-    callback = function(ev)
+    callback = function(args)
         -- Buffer local mappings.
         -- TODO: Compare keymaps with defaults
-        local buff = { buffer = ev.buf }
+        local buff = { buffer = args.buf }
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.bo[buff.buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buff)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buff)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, buff)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buff)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buff)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, buff)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, buff)
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buff)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, buff)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, buff)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, buff)
         vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
         end, buff)

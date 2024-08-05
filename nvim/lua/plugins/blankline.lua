@@ -4,7 +4,7 @@ return {
     opts = {
         indent = {
             char = "│",
-            tab_char = "│",
+            tab_char = "▸", -- Clearly signify a tab
         },
         scope = { enabled = false },
         exclude = {
@@ -22,5 +22,10 @@ return {
             },
         },
     },
-    main = "ibl",
+    config = function(_, opts)
+        require("ibl").setup(opts)
+    end
+
+    -- TODO: Remove after testing
+    -- main = "ibl",
 }
