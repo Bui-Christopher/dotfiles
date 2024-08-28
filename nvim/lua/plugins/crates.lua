@@ -6,7 +6,17 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     opts = {
-        src = {
+        popup = {
+            autofocus = true,
+            -- hide_on_select = true, -- Not sure if better on/off
+            show_version_date = true,
+        },
+        lsp = {
+            enabled = true,
+            completion = true,
+            hover = true,
+        },
+        completion = {
             cmp = {
                 enabled = true,
             }

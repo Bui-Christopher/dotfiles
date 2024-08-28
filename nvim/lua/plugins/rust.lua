@@ -34,12 +34,12 @@ return {
                         },
                         procMacro = {
                             enable = true,
-                            ignored = {
-                                leptos_macro = {
-                                    "component",
-                                    "server",
-                                },
-                            },
+                            -- ignored = {
+                            --     leptos_macro = {
+                            --         "component",
+                            --         "server",
+                            --     },
+                            -- },
                         },
                     },
                 },

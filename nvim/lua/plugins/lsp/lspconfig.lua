@@ -14,12 +14,14 @@ return {
         end
 
         -- Configure each LSP server
-        lspconfig["taplo"].setup {} -- toml
         lspconfig["bashls"].setup {}
-        lspconfig["pyright"].setup {}
+        lspconfig["clangd"].setup {}
         lspconfig["lua_ls"].setup({
             settings = {
                 Lua = {
+                    format = {
+                        enable = true,
+                    },
                     diagnostics = {
                         globals = { "vim" },
                     },
@@ -29,6 +31,8 @@ return {
                 }
             }
         })
+        lspconfig["pyright"].setup {}
         lspconfig["rust-analyzer"] = {}
+        lspconfig["taplo"].setup {} -- toml
     end,
 }

@@ -35,7 +35,7 @@ return {
         "ojroques/nvim-bufdel",
         event = "VeryLazy",
         keys = {
-            { "<leader>bd", "<cmd>BufDelOthers<cr>", desc = "Delete all other buffers"},
+            { "<leader>bd", "<cmd>BufDelOthers<cr>", desc = "Delete all other buffers" },
         }
     }
 }

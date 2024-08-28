@@ -32,6 +32,7 @@ compinit
 # else
 #     eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 # fi
+PINENTRY_USER_DATA="USE_CURSES=1"
 
 # Custom alias
 

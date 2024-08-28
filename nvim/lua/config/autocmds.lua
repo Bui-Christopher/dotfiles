@@ -62,11 +62,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Format on save (Rust files)
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.rs",
-  callback = function()
-    vim.lsp.buf.format({ timeout_ms = 200 })
-  end,
-  group = format_sync_grp,
+    pattern = { "*.rs", "*.cpp", "*.lua" },
+    callback = function()
+        vim.lsp.buf.format({ timeout_ms = 200 })
+    end,
+    group = format_sync_grp,
 })
 
 -- -- wrap and check for spell in text filetypes

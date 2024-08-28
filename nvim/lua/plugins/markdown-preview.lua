@@ -3,10 +3,10 @@ return {
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
     init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+        vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
-        keys = {
-            { "<leader>md", "<cmd>MarkdownPreview<CR>", desc = "Markdown Preview"},
-        },
+    keys = {
+        { "<leader>md", "<cmd>MarkdownPreview<CR>", desc = "Markdown Preview" },
+    },
 }

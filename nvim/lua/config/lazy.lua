@@ -14,8 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
     install = { colorscheme = { "tokyonight", "gruvbox" } },
     defaults = {
-        lazy = false,             -- Always lazy load
-        version = false,          -- Always use the latest git commit
+        lazy = false,              -- Always lazy load
+        version = false,           -- Always use the latest git commit
     },
     checker = { enabled = false }, -- automatically check for plugin updates
     ui = { border = "rounded" },
