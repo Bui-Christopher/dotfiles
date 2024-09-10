@@ -1,22 +1,22 @@
 [user]
-    name = Chris
+    name = Chris Bui
     email = christopherphongbui@gmail.com
 	signingkey = A5C2053635EB8AE9
 [init]
-    defaultBranch = main 
+    defaultBranch = main
 [color]
-    ui = auto 
+    ui = auto
 [core]
-	editor = nvim 
+	editor = nvim
 	pager = less
 [commit]
 	gpgsign = true
 [gpg]
-    program = gpg 
+    program = gpg
 [alias]
     alias = "!git config -l | grep alias | cut -d" = " -f1"
     amend = commit --amend -S --no-edit
-    last = log -1 HEAD 
+    last = log -1 HEAD
     ol = log --oneline -10
 
     dir = "!sh -c 'git diff $(git branch --show-current) $(git branch --contains $(git merge-base HEAD main features) | grep -v \"^\\*\") --name-only | cut -d'/' -f1 | sort -u'"

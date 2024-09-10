@@ -10,6 +10,9 @@ spotify
 WebCord/
 zsh/.zcompdump
 mimeapps.*
+kcalcrc
+go/
+btop/btop.log
 
 zoom*
 QtProject.conf
