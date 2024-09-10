@@ -48,8 +48,28 @@ return {
             },
         }
     end,
+    -- config = function(_, opts)
+    --     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    --     require("luasnip.loaders.from_vscode").lazy_load()
+    --     require("cmp").setup(opts)
+    -- end,
     config = function(_, opts)
-        -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+        -- Configure LuaSnip
+        local luasnip = require("luasnip")
+        local s = luasnip.snippet
+        local i = luasnip.insert_node
+        local t = luasnip.text_node
+
+        -- Define Rust snippets
+        luasnip.add_snippets("rust", {
+            s("unit", {
+                t({ "#[cfg(test)]", "mod tests {", "    use super::*;", "", "    #[test]" }),
+                t({ "", "    fn test_example() {", "        // Your test here", "    }", "}" }),
+                i(1)
+            }),
+        })
+
+        -- Load snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
         require("cmp").setup(opts)
     end,

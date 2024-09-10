@@ -35,6 +35,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Open Nvim-Tree File Explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
+keymap("n", ",", "@q", opts)
 ------------
 -- Visual --
 ------------
