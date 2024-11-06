@@ -1,4 +1,1 @@
-export ZDOTDIR=$HOME/.config/zsh
-export GPG_TTY=$(tty)
-# export GPG_TTY=$TTY
-source $HOME/.config/zsh/.zshrc
+ZDOTDIR="$HOME/.config/zsh/"

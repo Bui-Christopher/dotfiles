@@ -121,7 +121,7 @@ git submodule update --init --recursive
 ln -sf "$config_dir/git/.gitconfig" "$HOME/.gitconfig"
 
 # Zsh
-cp "$config_dir/zsh/.zshrc_home" "$HOME/.zshrc"
+cp "$config_dir/zsh/.zshrc_home" "$HOME/.zshenv"
 chsh -s /bin/zsh
 
 # Nitch

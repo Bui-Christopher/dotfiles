@@ -50,6 +50,7 @@ alias lt='_lt() {
 alias cm='cargo make'
 alias gdb="arm-none-eabi-gdb" # While working with microbit on Arch
 
+# Environment Variables
 export EDITOR=nvim
 # export PATH=$PATH:/home/cookie/.spicetify
 
