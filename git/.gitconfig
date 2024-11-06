@@ -14,7 +14,7 @@
 [gpg]
     program = gpg
 [alias]
-    alias = "!git config -l | grep alias | cut -d" = " -f1"
+    alias = "!git config -l | grep alias | cut -d = -f1 | cut -d. -f2"
     amend = commit --amend -S --no-edit
     last = log -1 HEAD
     ol = log --oneline -10

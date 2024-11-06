@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Note: "$(cd "$(dirname "$0")" && pwd)" cd to running script directory
-export SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-export DOTFILES_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-export NIX_CONFIG_DIR="$(cd "$DOTFILES_DIR/../nix" && pwd)"
-export TARGET_DIR="/etc/nixos"
-export BACKUP_DIR="/etc/nixos.bak"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+DOTFILES_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+NIX_CONFIG_DIR="$(cd "$DOTFILES_DIR/nix" && pwd)"
+TARGET_DIR="/etc/nixos"
+BACKUP_DIR="/etc/nixos.bak"
 
 if [[ ! -d "$NIX_CONFIG_DIR" ]]; then
     echo "Nix configurations not found"
     exit 1
 fi
+echo "Nix configuration found at $NIX_CONFIG_DIR"
 
 # Check if the target directory exists
 if [ -e "$TARGET_DIR" ]; then
