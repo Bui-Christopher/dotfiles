@@ -66,9 +66,9 @@
         nvtopPackages.full
         btop
 
-        rustup
-        cargo
-        rustc
+        # rustup
+        # cargo
+        # rustc
     ];
 
 }

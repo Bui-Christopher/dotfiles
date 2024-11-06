@@ -4,7 +4,7 @@
     imports = [
         ./hardware-configuration.nix
         ../common/default.nix
-        ../../home.nix
+        ../../home/home.nix
     ];
 
     # TODO: Read from system or param

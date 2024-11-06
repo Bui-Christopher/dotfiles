@@ -10,6 +10,7 @@
         enable = true;
         shellAliases = {
             ## NixOS Specific
+            nixbuild = "sudo nixos-rebuild build";
             nixswitch = "sudo nixos-rebuild switch";
             nixgc = "sudo nix-collect-garbage -d";
             };

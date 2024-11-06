@@ -24,7 +24,7 @@
                 system = "x86_64-linux";
                 specialArgs = { inherit inputs; };
                 modules = [
-                    ./hosts/toaster/configuration.nix
+                    ./hosts/toaster/default.nix
                     ./nixos/configuration.nix
                 ];
             };
