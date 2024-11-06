@@ -9,7 +9,6 @@ return {
     config = function()
         vim.g.rustaceanvim = {
             tools = {
-                -- test_executor = "neotest",
                 hover_actions = {
                     auto_focus = true,
                 },
@@ -18,29 +17,22 @@ return {
                 default_settings = {
                     ["rust-analyzer"] = {
                         cargo = {
-                            -- allFeatures = true,
                             -- features = { "all" },
-                            -- loadOutDirsFromCheck = true,
                             runBuildScripts = true,
                         },
-                        checkOnSave = {
-                            -- allFeatures = true,
-                            -- features = { "all" },
-                            command = "clippy",
-                            extraArgs = { "--no-deps" },
-                        },
+                        checkOnSave = { command = "clippy" },
                         rustfmt = {
                             extraArgs = { "+nightly" },
                         },
-                        procMacro = {
-                            enable = true,
-                            -- ignored = {
-                            --     leptos_macro = {
-                            --         "component",
-                            --         "server",
-                            --     },
-                            -- },
-                        },
+                        -- For Leptos
+                        -- procMacro = {
+                        --     ignored = {
+                        --         leptos_macro = {
+                        --             -- "component",
+                        --             -- "server",
+                        --         },
+                        --     },
+                        -- },
                     },
                 },
             },

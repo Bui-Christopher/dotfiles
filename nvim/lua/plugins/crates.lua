@@ -8,7 +8,7 @@ return {
     opts = {
         popup = {
             autofocus = true,
-            -- hide_on_select = true, -- Not sure if better on/off
+            -- hide_on_select = true, -- Might change mind later
             show_version_date = true,
         },
         lsp = {

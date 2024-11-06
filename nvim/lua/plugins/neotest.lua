@@ -3,9 +3,7 @@ return {
     dependencies = {
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
-        "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
-
         "mrcjkb/rustaceanvim",
     },
     opts = function(_, opts)
@@ -20,10 +18,6 @@ return {
     config = function(_, opts)
         require("neotest").setup(opts)
     end,
-
-    -- opts = {
-    --     adapters = { ["rustaceanvim.neotest"] = {} },
-    -- },
 
     keys = {
         { "<leader>t",  "",                                                                                 desc = "+test" },

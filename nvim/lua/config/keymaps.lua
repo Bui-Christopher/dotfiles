@@ -75,8 +75,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(args)
-        -- Buffer local mappings.
-        -- TODO: Compare keymaps with defaults
         local buff = { buffer = args.buf }
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         vim.bo[buff.buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'

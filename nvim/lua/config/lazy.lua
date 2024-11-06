@@ -24,18 +24,16 @@ require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
         notify = false,
     },
 
-    -- TODO: Understand what performance does
     performance = {
         rtp = {
-            -- disable some rtp plugins
             disabled_plugins = {
+                "getscriptPlugin",
                 "gzip",
-                -- "matchit",
-                -- "matchparen",
+                "logiPat",
                 -- "netrwPlugin",
                 "tarPlugin",
                 "tohtml",
-                "tutor",
+                -- "tutor",
                 "zipPlugin",
             },
         },

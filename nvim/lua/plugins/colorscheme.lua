@@ -16,9 +16,6 @@ return {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
-    -- opts = {
-    --     transport_mode = true,
-    -- },
     config = function(_, opts)
         local gruvbox = require("gruvbox")
         gruvbox.setup(opts)

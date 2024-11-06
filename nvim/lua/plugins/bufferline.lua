@@ -7,8 +7,6 @@ return {
         opts = {
             options = {
                 diagnostics = "nvim_lsp",
-                -- No longer needed?
-                -- diagnostics_update_in_insert = true,
                 always_show_bufferline = false,
                 offsets = {
                     {

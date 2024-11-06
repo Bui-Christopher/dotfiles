@@ -36,7 +36,6 @@ vim.opt.shiftwidth = 4     -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4        -- insert 2 spaces for a tab
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true -- make indenting smarter again
--- vim.opt.showtabline = 2             -- always show tabs
 
 -- Number
 vim.opt.number = true          -- set numbered lines

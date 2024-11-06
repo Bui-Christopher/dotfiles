@@ -25,7 +25,4 @@ return {
     config = function(_, opts)
         require("ibl").setup(opts)
     end
-
-    -- TODO: Remove after testing
-    -- main = "ibl",
 }

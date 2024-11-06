@@ -27,8 +27,9 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
+                ['<C-k>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-j>'] = cmp.mapping.scroll_docs(4),
+                ["<C-q>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
             }),
             -- sources for autocompletion
@@ -48,11 +49,6 @@ return {
             },
         }
     end,
-    -- config = function(_, opts)
-    --     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    --     require("luasnip.loaders.from_vscode").lazy_load()
-    --     require("cmp").setup(opts)
-    -- end,
     config = function(_, opts)
         -- Configure LuaSnip
         local luasnip = require("luasnip")
@@ -64,7 +60,7 @@ return {
         luasnip.add_snippets("rust", {
             s("unit", {
                 t({ "#[cfg(test)]", "mod tests {", "    use super::*;", "", "    #[test]" }),
-                t({ "", "    fn test_example() {", "        // Your test here", "    }", "}" }),
+                t({ "", "    fn test_fn() {", "        // Your test here", "    }", "}" }),
                 i(1)
             }),
         })
