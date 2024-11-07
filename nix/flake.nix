@@ -6,19 +6,25 @@
 
         # Home Manager
         home-manager = {
-                url = "github:nix-community/home-manager";
-                inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         # NixVim
         nixvim = {
-                url = "github:nix-community/nixvim";
-                inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:nix-community/nixvim";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        # Fenix
+        fenix = {
+            url = "github:nix-community/fenix";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs: {
-
+    outputs = { nixpkgs, ... }@inputs: {
+        packages.x86_64-linux.default = inputs.fenix.packages.x86_64-linux.default.toolchain;
         nixosConfigurations = {
             toaster = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
@@ -28,14 +34,6 @@
                     ./nixos/configuration.nix
                 ];
             };
-            # oven = nixpkgs.lib.nixosSystem {
-            #     system = "x86_64-linux";
-            #     specialArgs = { inherit inputs; };
-            #     modules = [
-            #         ./nixos/configuration.nix
-            #         ./home.nix
-            #     ];
-            # };
         };
     };
 }

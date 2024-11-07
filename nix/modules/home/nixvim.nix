@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
     programs.nixvim = {
@@ -109,7 +109,7 @@
             # Format on save
             {
                 event = "BufWritePre";
-                pattern = [ "*.rs" "*.cpp" "*.lua" ];
+                pattern = [ "*.rs" "*.cpp" "*.lua" "*.nix" ];
                 callback.__raw = ''
                     function()
                         vim.lsp.buf.format({ timeout_ms = 200 })
@@ -495,9 +495,10 @@
                             "yaml"
                         ];
                     };
-                    indent = {
-                        char = "│";
-                    };
+                    # ISSUE: Change default indent character
+                    # https://github.com/nix-community/nixd/issues/614
+                    # Commit: https://github.com/Bui-Christopher/dotfiles/blob/6112031b9641dd206b10f673b95842a8a2924de3/nvim/lua/plugins/blankline.lua#L6
+                    # indent.char = "<INSERT HERE>"
                     scope = {
                         show_end = false;
                         show_exact_scope = true;
@@ -580,6 +581,7 @@
                         };
                     };
                     # markdown_oxide.enable = true;
+                    nixd.enable = true;
                     # nginx_language_server.enable = true;
                     pyright.enable = true;
                     # tailwindcss.enable = true;
@@ -726,7 +728,9 @@
                 enable = true;
             };
         };
-        # TODO: Find a better way to manage plugin hotkeys
+        # TODO:
+        # Find a better way to manage plugin hotkeys
+        # Certain plugins have their own setting mappings like telescope
         extraConfigLua = ''
             local opts = { silent = true }
 

@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
         ../common/default.nix
-        ../../home/home.nix
+        ../../modules/home/home.nix
+        ../../modules/fenix.nix
     ];
 
     # TODO: Read from system or param
