@@ -16,15 +16,18 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # NOTE:
+        # Fenix is an alternative for using rustc and cargo from nixpkgs for nightly
+        # It replaces rustup, but I'd like to be in favor of development shells instead
         # Fenix
-        fenix = {
-            url = "github:nix-community/fenix";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        # fenix = {
+        #     url = "github:nix-community/fenix";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        # };
     };
 
     outputs = { nixpkgs, ... }@inputs: {
-        packages.x86_64-linux.default = inputs.fenix.packages.x86_64-linux.default.toolchain;
+        # packages.x86_64-linux.default = inputs.fenix.packages.x86_64-linux.default.toolchain;
         nixosConfigurations = {
             toaster = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
