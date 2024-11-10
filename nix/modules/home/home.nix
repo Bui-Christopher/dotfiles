@@ -6,6 +6,7 @@
     ];
 
     home-manager = {
+        backupFileExtension = "backup";
         useGlobalPkgs = true;
         useUserPackages = true;
         sharedModules = [ inputs.nixvim.homeManagerModules.nixvim ];
@@ -48,8 +49,23 @@
 
                 spotify
             ];
+            fonts.fontconfig.enable = true;
             programs.home-manager.enable = true;
 
+            nix = {
+                registry = {
+                    templates = {
+                        to = {
+                            owner = "NixOS";
+                            repo = "templates";
+                            type = "github";
+                        };
+                    };
+                };
+                settings = {
+                    experimental-features = [ "flakes" "nix-command" ];
+                };
+            };
             imports = [
                 ./git.nix
                 ./nixvim.nix
