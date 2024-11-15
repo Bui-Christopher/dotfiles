@@ -133,13 +133,6 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 
 # Display
 
-# NVidia
-# yay -S nvidia
-
-# Xorg/i3
-# yay -S xorg-server xorg-xinit xsel i3-wm xorg-xrandr \
-#     arandr polybar rofi
-
 # AMD
 yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon
 

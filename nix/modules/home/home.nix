@@ -54,15 +54,15 @@
             programs.home-manager.enable = true;
 
             nix = {
-                registry = {
-                    templates = {
-                        to = {
-                            owner = "NixOS";
-                            repo = "templates";
-                            type = "github";
-                        };
-                    };
-                };
+                # registry = {
+                #     templates = {
+                #         to = {
+                #             owner = "NixOS";
+                #             repo = "templates";
+                #             type = "github";
+                #         };
+                #     };
+                # };
                 settings = {
                     experimental-features = [ "flakes" "nix-command" ];
                 };

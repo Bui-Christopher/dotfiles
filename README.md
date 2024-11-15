@@ -13,7 +13,7 @@
 
 | Program                                | Name                                                                                            |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| :penguin: **OS**                       | [ArchLinux](https://wiki.archlinux.org/)                                                        |
+| :penguin: **OS**                       | [Arch](https://wiki.archlinux.org/) & Nix                                                       |
 
 <!-- Operating System -->
 <!-- Window Manager -->
@@ -29,7 +29,6 @@
 <!-- Icons -->
 <!-- Spotify/cava1 -->
 <!-- System Monitor -->
-<!-- Swaync -->
 <!-- sddm -->
 
 ## Todo
@@ -71,7 +70,7 @@
         - [ ] Remove hardcoded variables
             - [ ] username
             - [ ] script paths
-        - [ ] lsd, kitty, i3, screenlayout
+        - [ ] lsd, kitty, screenlayout
         - [ ] Packages
             - [ ] `noto-fonts-emoji`
             - [ ] `ttf-meslo-nerd-font-powerlevel10k`
@@ -81,7 +80,7 @@
         - [ ] Split Script
             - [ ] Packages
             - [ ] Rust/Cargo/Cargo Binaries
-            - [ ] Desktop Environment - (Xorg/i3)/(wayland/hyprland)
+            - [ ] Desktop Environment - (wayland/hyprland)
         - [ ] Laptop
             - [ ] Displaylink
                 - [ ] evdi-git
@@ -115,9 +114,6 @@
               ```bash
               upower --dump | grep keyboard -A 7
               ```
-    - [ ] i3
-        - [ ] `nm-applet`: [Possible Fix](https://github.com/polybar/polybar/issues/1355)
-        - [ ] Sync with Hyprland
     - [ ] Rust
         - [ ] [Sccache](https://wiki.archlinux.org/title/rust#sccache)
         - [ ] `vcs = "none"`
