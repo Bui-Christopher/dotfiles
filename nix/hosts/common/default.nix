@@ -62,13 +62,13 @@
         pinentry-curses
         vim
 
+        neofetch
+
         htop
         nvtopPackages.full
         btop
 
-        # rustup
-        # cargo
-        # rustc
+        lshw
     ];
 
 }
