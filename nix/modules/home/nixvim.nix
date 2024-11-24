@@ -569,7 +569,7 @@
                     # csharp_ls.enable = true;
                     # cssls.enable = true;
                     # docker_compose_language_service.enable = true;
-                    # dockerls.enable = true;
+                    dockerls.enable = true;
                     # html.enable = true;
                     # htmx.enable = true;
                     # jqls.enable = true;
@@ -640,6 +640,7 @@
             nvim-autopairs.enable = true;
             # TODO: nvim-bufdel.enable = true;
             nvim-lightbulb.enable = true;
+            nvim-surround.enable = true;
             nvim-tree = {
                 enable = true;
                 diagnostics.enable = true;
@@ -688,11 +689,15 @@
                     };
                     "<leader>ff" = {
                         action = "find_files";
-                        options.desc = "Find Plugin File";
+                        options.desc = "Find File";
                     };
                     "<leader>fg" = {
                         action = "live_grep";
                         options.desc = "Live Grep";
+                    };
+                    "<leader>fs" = {
+                        action = "git_status";
+                        options.desc = "Find Git Changes";
                     };
                     "<leader>fw" = {
                         action = "grep_string";
@@ -722,7 +727,6 @@
                 enable = true;
                 settings.highlight = true;
             };
-            vim-surround.enable = true;
             web-devicons.enable = true;
             which-key = {
                 enable = true;

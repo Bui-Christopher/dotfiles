@@ -1,9 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-    imports = [
-        ./display.nix
-    ];
+    imports = [];
     # Networking
     networking.networkmanager.enable = true;
 
@@ -50,7 +48,7 @@
     services.pcscd.enable = true;
     programs.gnupg.agent = {
         enable = true;
-        pinentryPackage = lib.mkForce pkgs.pinentry-curses;
+        pinentryPackage = pkgs.pinentry-curses;
         enableSSHSupport = true;
     };
 
@@ -63,11 +61,13 @@
         vim
 
         neofetch
+        lsd
 
         htop
         nvtopPackages.full
         btop
 
+        # For Nvidia Display configuration
         lshw
     ];
 

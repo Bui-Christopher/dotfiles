@@ -10,11 +10,15 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # Hyprland
+        hyprland.url = "github:hyprwm/Hyprland";
+
         # NixVim
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
 
         # NOTE:
         # Fenix is an alternative for using rustc and cargo from nixpkgs for nightly

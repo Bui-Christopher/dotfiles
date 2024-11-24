@@ -3,8 +3,10 @@
 {
     imports = [
         ./hardware-configuration.nix
-        ../common/default.nix
-        ../../modules/home/home.nix
+        ../common.nix
+        ../../modules/gnome.nix
+        ../../modules/home/default.nix
+        # ../../modules/hyprland.nix
         ../../modules/nvidia.nix
         # ../../modules/fenix.nix
     ];
