@@ -1,6 +1,13 @@
 {inputs, pkgs, ...}:
 
 {
+    imports = [];
+    services.xserver.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+
+    services.libinput.enable = true;
+    services.xserver.libinput.naturalScrolling = true;
+
     programs.hyprland = {
         enable = true;
         # set the flake package

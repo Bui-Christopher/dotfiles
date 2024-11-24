@@ -69,6 +69,7 @@
             };
             imports = [
                 ./git.nix
+                ./hyprland.nix
                 ./nixvim.nix
                 ./zsh.nix
             ];
