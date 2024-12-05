@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     imports = [];
@@ -52,23 +52,38 @@
         enableSSHSupport = true;
     };
 
+    # Packages
     environment.systemPackages = with pkgs; [
+        # Compression
+        unzip
+        xz
+        zip
+
+        # Encryption
+        gnupg
+        pinentry-curses
+
+        # File
+        file
+        which
+
+        # Networking
         curl
         wget
 
+        # Shell
+        bash
+        zsh
+
+        # Version Control
         git
-        pinentry-curses
+
+        # Editor
         vim
 
-        neofetch
-        lsd
-
-        htop
-        nvtopPackages.full
+        # System Monitoring
         btop
-
-        # For Nvidia Display configuration
-        lshw
+        htop
+        neofetch
     ];
-
 }

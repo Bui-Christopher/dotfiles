@@ -4,13 +4,13 @@
     imports = [
         ./hardware-configuration.nix
         ../common.nix
-        # ../../modules/gnome.nix
+
+        # Customizations
         ../../modules/home/default.nix
+        # ../../modules/gnome.nix
         ../../modules/hyprland.nix
         ../../modules/nvidia.nix
-        # ../../modules/fenix.nix
     ];
 
-    # TODO: Read from system or param
     networking.hostName = "toaster";
 }

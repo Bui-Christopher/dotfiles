@@ -1,3 +1,4 @@
+# NOTE: Gnome is commented out and not currently being used.
 { pkgs, ... }:
 
 {
@@ -10,10 +11,12 @@
     services.xserver.libinput.naturalScrolling = true;
 
     environment.systemPackages = with pkgs; [
-        # For x11
-        xclip
+        xclip # For x11
         # gnome-control-center
         # gnome-settings-daemon
     ];
+    programs.waybar = {
+        enable = true;
+    };
 
 }

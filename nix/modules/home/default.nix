@@ -1,15 +1,15 @@
 { pkgs, inputs, ... }:
 
 {
-    imports = [
-        inputs.home-manager.nixosModules.default
-    ];
+    imports = [ inputs.home-manager.nixosModules.default ];
 
     home-manager = {
         backupFileExtension = "backup";
         useGlobalPkgs = true;
         useUserPackages = true;
-        sharedModules = [ inputs.nixvim.homeManagerModules.nixvim ];
+        sharedModules = [
+            inputs.nixvim.homeManagerModules.nixvim
+        ];
         extraSpecialArgs = {inherit inputs;};
         users.cookie = {
             home.username = "cookie";
@@ -17,41 +17,39 @@
             home.stateVersion = "24.05";
 
             home.packages = with pkgs; [
-                meslo-lgs-nf
-                nerdfonts
-
-                bash
-                # Browsers
+                # Applications
                 firefox
                 chromium
+                spotify
 
-                # Files
-                xz
-                zip
-                unzip
+                # Fonts
+                meslo-lgs-nf
+                nerd-fonts.jetbrains-mono
+                nerd-fonts.meslo-lg
+                nerd-fonts.symbols-only
 
-                # Utils
+                # Productivity
                 fd
                 fzf
                 ripgrep
+
                 jq
                 yq-go
+
                 zoxide
+                lsd
+                tree
 
                 # Misc
-                btop
-                file
                 cowsay
-                which
-                tree
-                gnupg
-                zsh
-                wezterm
 
-                spotify
             ];
             fonts.fontconfig.enable = true;
             programs.home-manager.enable = true;
+            programs.wezterm = {
+                enable = true;
+                package = inputs.wezterm.packages.${pkgs.system}.default;
+            };
 
             nix = {
                 # registry = {

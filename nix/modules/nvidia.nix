@@ -1,6 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+    environment.systemPackages = with pkgs; [
+        lshw # For Nvidia Display configuration
+        nvtopPackages.full
+    ];
+
     # Enable OpenGL
     hardware.graphics.enable = true;
 
@@ -35,7 +40,7 @@
         nvidiaSettings = true;
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
+        package = config.boot.kernelPackages.nvidiaPackages.beta; # Stable/Beta
 
         prime = {
             offload = {
@@ -45,8 +50,6 @@
 		    # Make sure to use the correct Bus ID values for your system!
             intelBusId = "PCI:0:2:0";
 		    nvidiaBusId = "PCI:1:0:0";
-	};
-
+	    };
     };
-
 }

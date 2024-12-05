@@ -11,7 +11,7 @@
         };
 
         # Hyprland
-        hyprland.url = "github:hyprwm/Hyprland";
+        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
         # NixVim
         nixvim = {
@@ -19,11 +19,15 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # Wezterm
+        wezterm = {
+            url = "github:wez/wezterm?dir=nix";
+        };
 
-        # NOTE:
-        # Fenix is an alternative for using rustc and cargo from nixpkgs for nightly
-        # It replaces rustup, but I'd like to be in favor of development shells instead
         # Fenix
+        # NOTE:https://github.com/nix-community/fenix
+        # Fenix is for using nightly rustc and cargo (nixpkgs uses stable)
+        # It replaces rustup, but I'd like to exclusively use development shells instead
         # fenix = {
         #     url = "github:nix-community/fenix";
         #     inputs.nixpkgs.follows = "nixpkgs";

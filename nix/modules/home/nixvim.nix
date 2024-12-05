@@ -732,8 +732,7 @@
                 enable = true;
             };
         };
-        # TODO:
-        # Find a better way to manage plugin hotkeys
+        # TODO: Find a better way to manage plugin hotkeys
         # Certain plugins have their own setting mappings like telescope
         extraConfigLua = ''
             local opts = { silent = true }
