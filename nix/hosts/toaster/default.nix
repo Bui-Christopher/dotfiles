@@ -7,7 +7,6 @@
 
         # Customizations
         ../../modules/home/default.nix
-        # ../../modules/gnome.nix
         ../../modules/hyprland.nix
         ../../modules/nvidia.nix
     ];

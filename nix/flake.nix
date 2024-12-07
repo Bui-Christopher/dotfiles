@@ -22,24 +22,14 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        # Wezterm
+        # WezTerm
         wezterm = {
             url = "github:wez/wezterm?dir=nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        # Fenix
-        # NOTE:https://github.com/nix-community/fenix
-        # Fenix is for using nightly rustc and cargo (nixpkgs uses stable)
-        # It replaces rustup, but I'd like to exclusively use development shells instead
-        # fenix = {
-        #     url = "github:nix-community/fenix";
-        #     inputs.nixpkgs.follows = "nixpkgs";
-        # };
     };
 
     outputs = { nixpkgs, ... }@inputs: {
-        # packages.x86_64-linux.default = inputs.fenix.packages.x86_64-linux.default.toolchain;
         nixosConfigurations = {
             toaster = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
