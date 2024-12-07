@@ -11,7 +11,10 @@
         };
 
         # Hyprland
-        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+        hyprland = {
+            url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
         # NixVim
         nixvim = {
@@ -22,6 +25,7 @@
         # Wezterm
         wezterm = {
             url = "github:wez/wezterm?dir=nix";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         # Fenix

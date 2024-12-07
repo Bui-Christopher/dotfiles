@@ -4,7 +4,7 @@
     home.packages = with pkgs; [
         hyprpaper
         brightnessctl
-        fuzzel
+        rofi-wayland
         pavucontrol
         waybar
         wl-clipboard
@@ -127,11 +127,13 @@
 
             "$mainMod" = "SUPER";
             "$terminal" = "wezterm";
-            "$menu" = "fuzzel";
+            # "$launcher" = "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window";
+            "$launcher" = "pkill rofi || rofi -show drun -modi drun";
+
             bind = [
                 # Starting Applications
                 "$mainMod, RETURN, exec, $terminal"
-                "$mainMod, d, exec, $menu"
+                "$mainMod, d, exec, $launcher"
                 "$mainMod, L, exec, systemctl suspend"
 
                 # Screenshot
@@ -192,7 +194,7 @@
 
             exec-once = [
                 "waybar"
-                "hyprpaper"
+                "${pkgs.hyprpaper}/bin/hyprpaper"
             ];
         };
     };

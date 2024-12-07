@@ -1,7 +1,6 @@
 { ... }:
 
 {
-    imports = [];
     nixpkgs.config.allowUnfree = true;
     nix = {
         settings = {
@@ -10,13 +9,15 @@
             flake-registry = "";
 
             # Hyprland Cachix: https://wiki.hyprland.org/Nix/Cachix/
-            # substituters = ["https://hyprland.cachix.org"];
-            # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-
             # Wezterm Cachix: https://wezfurlong.org/wezterm/install/linux.html#cachix
-            substituters = ["https://wezterm.cachix.org"];
-            trusted-public-keys = ["wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="];
-
+            substituters = [
+                "https://hyprland.cachix.org"
+                "https://wezterm.cachix.org"
+            ];
+            trusted-public-keys = [
+                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+                "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
+            ];
         };
         gc = {
             automatic = true;
@@ -26,5 +27,4 @@
     };
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     system.stateVersion = "24.05"; # Did you read the comment?
-
 }

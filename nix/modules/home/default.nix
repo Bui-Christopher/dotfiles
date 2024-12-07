@@ -5,12 +5,12 @@
 
     home-manager = {
         backupFileExtension = "backup";
+        extraSpecialArgs = {inherit inputs;};
         useGlobalPkgs = true;
         useUserPackages = true;
         sharedModules = [
             inputs.nixvim.homeManagerModules.nixvim
         ];
-        extraSpecialArgs = {inherit inputs;};
         users.cookie = {
             home.username = "cookie";
             home.homeDirectory = "/home/cookie";
@@ -29,20 +29,22 @@
                 nerd-fonts.symbols-only
 
                 # Productivity
+                ## Files
                 fd
                 fzf
                 ripgrep
 
+                ## Processors
                 jq
                 yq-go
 
-                zoxide
+                ## Directory Flow
                 lsd
                 tree
+                zoxide
 
                 # Misc
                 cowsay
-
             ];
             fonts.fontconfig.enable = true;
             programs.home-manager.enable = true;
