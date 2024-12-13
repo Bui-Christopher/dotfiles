@@ -17,7 +17,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- close some filetypes with <q>
+-- Set .txt as Markdown
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = create_autocmd("txt_as_md"),
+    pattern = {
+        "*.txt",
+    },
+    command = "set filetype=markdown",
+})
+
+-- Match Window Split Resizes
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = create_autocmd("resize_splits"),
+    callback = function()
+        local current_tab = vim.fn.tabpagenr()
+        vim.cmd("tabdo wincmd =")
+        vim.cmd("tabnext " .. current_tab)
+    end,
+})
+
+-- Close Filetypes With <q>
 vim.api.nvim_create_autocmd("FileType", {
     group = create_autocmd("close_with_q"),
     pattern = {
@@ -69,12 +88,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     group = format_sync_grp,
 })
 
--- -- wrap and check for spell in text filetypes
--- vim.api.nvim_create_autocmd("FileType", {
---   group = create_autocmd("wrap_spell"),
---   pattern = { "gitcommit", "markdown" },
---   callback = function()
---     vim.opt_local.wrap = true
---     vim.opt_local.spell = true
---   end,
--- })
+-- Wrap/Spell Check in Text Filetypes
+vim.api.nvim_create_autocmd("FileType", {
+    group = create_autocmd("wrap_spell"),
+    pattern = { "gitcommit", "markdown", "text" },
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.spell = true
+    end,
+})

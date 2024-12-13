@@ -9,6 +9,7 @@ return {
     config = function()
         vim.g.rustaceanvim = {
             tools = {
+                enable_clippy = true,
                 hover_actions = {
                     auto_focus = true,
                 },
@@ -16,23 +17,15 @@ return {
             server = {
                 default_settings = {
                     ["rust-analyzer"] = {
-                        cargo = {
-                            -- features = { "all" },
-                            runBuildScripts = true,
-                        },
-                        checkOnSave = { command = "clippy" },
+                        -- cargo = {
+                        --     features = { "wasm" },
+                        -- },
+                        -- rustc = {
+                        --     source = "discover",
+                        -- },
                         rustfmt = {
                             extraArgs = { "+nightly" },
                         },
-                        -- For Leptos
-                        -- procMacro = {
-                        --     ignored = {
-                        --         leptos_macro = {
-                        --             -- "component",
-                        --             -- "server",
-                        --         },
-                        --     },
-                        -- },
                     },
                 },
             },

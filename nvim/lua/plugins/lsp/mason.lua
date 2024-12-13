@@ -24,7 +24,7 @@ return {
                 "lua_ls",
                 "pyright",
                 -- "rust_analyzer",
-                -- "taplo"
+                "taplo"
             },
             automatic_installation = true,
         })

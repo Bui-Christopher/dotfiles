@@ -23,7 +23,12 @@ zstyle :compinstall filename '/home/cookie/.zshrc'
 autoload -Uz compinit
 compinit
 
+export GPG_TTY=$TTY
 PINENTRY_USER_DATA="USE_CURSES=1"
+
+#Better arrow keys
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # Custom alias
 ## Linux Stuff
