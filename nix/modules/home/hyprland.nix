@@ -2,10 +2,11 @@
 
 {
     home.packages = with pkgs; [
-        hyprpaper
+        blueberry
         brightnessctl
-        rofi-wayland
+        hyprpaper
         pavucontrol
+        rofi-wayland
         waybar
         wl-clipboard
     ];
@@ -41,6 +42,7 @@
         name = "Capitaine Cursors (Gruvbox) - White";
         size = 16;
     };
+
     gtk = {
         enable = true;
     };
@@ -58,6 +60,8 @@
                 touchpad.natural_scroll = true;
                 repeat_rate = 30;
                 kb_layout = "us";
+                # force_no_accel = false;
+                # accel_profile = "flat"; # adaptive | flat
                 # follow_mouse = 1;
                 # sensitivity = -0.55; # -1.0 to 1.0, 0 means no modification.
             };

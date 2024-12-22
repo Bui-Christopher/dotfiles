@@ -50,6 +50,7 @@
         btop
         htop
         neofetch
+        networkmanagerapplet
     ];
 
     # Sound
