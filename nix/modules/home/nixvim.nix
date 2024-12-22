@@ -434,9 +434,9 @@
             conform-nvim = {
                 enable = true;
             };
-            crates-nvim = {
+            crates = {
                 enable = true;
-                extraOptions = {
+                settings = {
                     popup = {
                         autofocus = true;
                         show_version_date = true;

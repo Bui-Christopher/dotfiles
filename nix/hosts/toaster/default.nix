@@ -2,13 +2,12 @@
 
 {
     imports = [
+        # Hardware Specific
         ./hardware-configuration.nix
-        ../common.nix
+        ../nvidia.nix
 
-        # Customizations
         ../../modules/home/default.nix
-        ../../modules/hyprland.nix
-        ../../modules/nvidia.nix
+        ../../modules/system/default.nix
     ];
 
     networking.hostName = "toaster";

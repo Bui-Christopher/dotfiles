@@ -1,56 +1,59 @@
-{
-    "position": "bottom",
-    "height": 35,
-    "spacing": 4,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "battery", "network", "clock"],
-    "tray": {
-        "icon-size": 30,
-        "spacing": 20
-    },
-    "clock": {
-        "timezone": "America/Los_Angeles",
-        "format": "{:%b %d. %a %I:%M %p}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        // TODO: Change Speaker Muted Icon 
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "  ",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+[
+    {
+        "position": "top",
+        "height": 35,
+        "spacing": 4,
+        "modules-center": ["hyprland/workspaces"],
+        "modules-right": ["pulseaudio", "battery", "network"],
+        "modules-left": ["clock"],
+        "tray": {
+            "icon-size": 30,
+            "spacing": 20
         },
-        "on-click": "pavucontrol"
-    },
-
-    "network": {
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "on-click": "nm-connection-editor"
-    },
-
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
+        "clock": {
+            "timezone": "America/Los_Angeles",
+            "format": "{:%b %d. %a %I:%M %p}"
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-},
+        "pulseaudio": {
+            // "scroll-step": 1, // %, can be a float
+            "format": "{volume}% {icon}",
+            // TODO: Change Speaker Muted Icon 
+            "format-bluetooth": "{volume}% {icon}",
+            "format-bluetooth-muted": " {icon}",
+            "format-muted": "  ",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+
+        "network": {
+            "format-wifi": "{essid}  ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "tooltip-format": "{ifname} via {gwaddr} ",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "Disconnected ⚠",
+            "on-click": "nm-connection-editor"
+        },
+
+        "battery": {
+            "states": {
+                // "good": 95,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{capacity}% {icon}",
+            "format-full": "{capacity}% {icon}",
+            "format-charging": "{capacity}% ",
+            // TODO: Look into something like: "format-charging-alt": "{time} {icon}",
+            "format-alt": "{time} {icon}",
+            "format-icons": ["", "", "", "", ""]
+        },
+    }
+]

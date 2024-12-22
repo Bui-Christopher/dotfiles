@@ -1,52 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        blueberry
-        brightnessctl
-        hyprpaper
-        pavucontrol
-        rofi-wayland
-        waybar
-        wl-clipboard
-    ];
-
-    services.hyprpaper = {
-        enable = true;
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        settings = {
-            ipc = "off";
-            splash = false;
-
-            preload = [
-                "~/.config/backgrounds/dota-blue.jpg"
-            ];
-            wallpaper = [
-                "eDP-1,~/.config/backgrounds/dota-blue.jpg"
-            ];
-        };
-    };
-
-    programs.waybar = {
-        enable = true;
-    };
-
-    programs.hyprlock = {
-        enable = true;
-    };
-
-    home.pointerCursor = {
-        gtk.enable = true;
-        # x11.enable = true;
-        package = pkgs.capitaine-cursors-themed;
-        name = "Capitaine Cursors (Gruvbox) - White";
-        size = 16;
-    };
-
-    gtk = {
-        enable = true;
-    };
-
     wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
@@ -62,7 +16,6 @@
                 kb_layout = "us";
                 # force_no_accel = false;
                 # accel_profile = "flat"; # adaptive | flat
-                # follow_mouse = 1;
                 # sensitivity = -0.55; # -1.0 to 1.0, 0 means no modification.
             };
 
@@ -201,5 +154,18 @@
                 "${pkgs.hyprpaper}/bin/hyprpaper"
             ];
         };
+    };
+
+    # Theming
+    home.pointerCursor = {
+        gtk.enable = true;
+        # x11.enable = true;
+        package = pkgs.capitaine-cursors-themed;
+        name = "Capitaine Cursors (Gruvbox) - White";
+        size = 16;
+    };
+
+    gtk = {
+        enable = true;
     };
 }
