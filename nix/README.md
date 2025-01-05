@@ -6,4 +6,7 @@
 - Common Symbolic Links
 ```
 ln -s ~/Documents/dotfiles/waybar/config.laptop ~/.config/waybar/config
+ln -s ~/Documents/dotfiles/backgrounds ~/.config/backgrounds
 ```
+zsh
+rofi

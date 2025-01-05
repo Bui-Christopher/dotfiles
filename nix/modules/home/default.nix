@@ -50,6 +50,7 @@
             fonts.fontconfig.enable = true;
             programs.home-manager.enable = true;
             programs.wezterm = {
+                # TODO: Settings
                 enable = true;
                 package = inputs.wezterm.packages.${pkgs.system}.default;
             };

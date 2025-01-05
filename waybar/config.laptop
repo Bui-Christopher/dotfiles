@@ -34,7 +34,7 @@
         },
 
         "network": {
-            "format-wifi": "{essid}  ",
+            "format-wifi": "{essid} ",
             "format-ethernet": "{ipaddr}/{cidr} ",
             "tooltip-format": "{ifname} via {gwaddr} ",
             "format-linked": "{ifname} (No IP) ",
@@ -48,9 +48,11 @@
                 "warning": 30,
                 "critical": 15
             },
+            "tooltip": false,
             "format": "{capacity}% {icon}",
             "format-full": "{capacity}% {icon}",
             "format-charging": "{capacity}% ",
+            "format-time": "{H}h {M}m",
             // TODO: Look into something like: "format-charging-alt": "{time} {icon}",
             "format-alt": "{time} {icon}",
             "format-icons": ["", "", "", "", ""]
