@@ -138,7 +138,7 @@ yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon
 
 # Wayland/Hyprland
 yay -S fuzzel hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber \
-    dunst waybar hyprshot
+    dunst waybar-git hyprshot
 
 # Login Page - sddm
 yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm

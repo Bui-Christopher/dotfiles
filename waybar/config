@@ -15,5 +15,7 @@
     "pulseaudio": {
         "format-bluetooth": "{volume}% {icon}",
         "on-click": "pavucontrol"
+    },
+    "hyprland/workspaces": {
     }
 }

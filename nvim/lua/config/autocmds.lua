@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Format on save (Rust files)
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.cpp", "*.lua" },
+    pattern = { "*.rs", "*.cpp", "*.lua", "*.py" },
     callback = function()
         vim.lsp.buf.format({ timeout_ms = 200 })
     end,
