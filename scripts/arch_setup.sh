@@ -45,9 +45,9 @@ chown -R "$username:$username" "$HOME/Downloads"
 # Official Packages
 sudo pacman -Syu
 sudo pacman -S --noconfirm blueberry chromium clang cmake curl docker \
-    docker-compose fakeroot feh gcc gzip htop iproute2 kitty less make nim openssh \
-    openssl pavucontrol pkg-config pulseaudio pulseaudio-bluetooth polkit-kde-agent \
-    python rustup tmux tree unzip vlc wezterm wget zip zsh
+    docker-compose fakeroot feh gcc gzip htop iproute2 jq less make nim openssh \
+    openssl pavucontrol pkg-config polkit-kde-agent python rustup tmux \
+    tree unzip vlc wezterm wget zip zsh
 
 # AUR Helper
 git clone https://aur.archlinux.org/yay.git
@@ -58,7 +58,8 @@ cd ..
 rm -rf yay
 
 # AUR Packages
-yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord
+yay -S --noconfirm noto-fonts-emoji ttf-meslo-nerd-font-powerlevel10k webcord \
+    lsd ripgrep sccache zoxide ttf-nerd-fonts-symbols
 
 # Spotify
 # spotify spicetify-cli
@@ -107,7 +108,7 @@ rustflags = [\"-C\", \"target-cpu=native\"]"
 echo "$tmp" > "$cargo_config"
 
 # Rust Binaries
-cargo install cargo-watch lsd ripgrep sccache zoxide
+cargo install cargo-watch
 
 # Convenient Scripts
 sudo ln -sf "$config_dir/scripts/autopull.sh" "/usr/local/bin/autopull"
@@ -137,8 +138,8 @@ sudo mv "$nitch_dir/nitch" "/usr/local/bin/nitch"
 yay -S libva-mesa-driver mesa xf86-video-amdgpu vulkan-radeon
 
 # Wayland/Hyprland
-yay -S fuzzel hyprland hyprpaper qt5-wayland qt6-wayland pipewire wireplumber \
-    dunst waybar-git hyprshot
+yay -S fuzzel hyprland-git hyprpaper-git hyprpolkitagent-git qt5-wayland qt6-wayland pipewire wireplumber \
+    dunst waybar-git hyprshot-git
 
 # Login Page - sddm
 yay -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm

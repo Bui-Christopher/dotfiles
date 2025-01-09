@@ -24,7 +24,7 @@ Select Disk to Partition
 
 Create a boot drive
 - `mkfs.fat -F 32 /dev/nvme0n1p1`
-- +512M 
+- +512M
 - EFI System
 - `fatlabel /dev/nvme0n1p1 BOOT`
 
@@ -44,7 +44,7 @@ Create a mount drive
 
 - `genfstab -U /mnt >> /mnt/etc/fstab`
 
-#### Packages 
+#### Packages
 - `arch-chroot /mnt`
 
 - `pacman -S --noconfirm base-devel efibootmgr git grub neovim networkmanager sudo`
