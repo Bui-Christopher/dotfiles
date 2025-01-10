@@ -91,6 +91,8 @@ Create a mount drive
 - `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
 #### Multiple OS
+- `pacman -S --noconfirm os-prober`
+
 - Modify:
     - `/etc/default/grub`
     - `GRUB_DISABLE_OS_PROBER=false`
