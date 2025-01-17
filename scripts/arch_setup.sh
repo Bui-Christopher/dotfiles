@@ -1,26 +1,8 @@
 #!/bin/bash
 
-# This script is used after installing arch linux
+# This script is used after installing Arch Linux
 # It installs basic configurations
-
-# Requirements to running script
-# sudo
-# useradd -m cookie ...
-
-# ├── dotfiles
-# │   ├── git
-# │   ├── scripts
-# │   ├── zsh
-# │   └── ...
-
-# └── home
-#     └── cookie
-#         ├── Documents
-#         ├── Downloads
-#         ├── .config
-#         ├── .gitconfig
-#         ├── .zshrc
-#         └── ...
+# ./dotfiles/scripts/arch_setup.sh
 
 set -e
 
@@ -35,7 +17,6 @@ export nitch_config="${config_dir}/scripts/nitch/drawing.nim"
 
 # Folders and Permissions
 mv "$dotfiles_dir"/* "$config_dir"
-rmdir "$dotfiles_dir"
 mkdir -p "$HOME/Documents"
 mkdir -p "$HOME/Downloads"
 

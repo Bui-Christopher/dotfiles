@@ -13,10 +13,10 @@
             splash = false;
 
             preload = [
-                "~/.config/backgrounds/dota-blue.jpg"
+                "~/.config/backgrounds/yellow-moon.png"
             ];
             wallpaper = [
-                "eDP-1,~/.config/backgrounds/dota-blue.jpg"
+                "eDP-1,~/.config/backgrounds/yellow-moon.png"
             ];
         };
     };

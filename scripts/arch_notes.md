@@ -105,7 +105,7 @@ Create a mount drive
 
 ### Mount Additional Drives
     blkid | grep sda1 >> /etc/fstab
-    UUID=<UUID> /mnt/archive ext4 defaults 0 0
+    UUID=<UUID> /mnt/archive ext4 defaults,nofail 0 0
 
 ### Final Setup
 - `exit`

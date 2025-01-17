@@ -11,94 +11,36 @@
 
 ## :gear: Programs
 
-| Program                                | Name                                                                                            |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| :penguin: **OS**                       | [Arch](https://wiki.archlinux.org/) & Nix                                                       |
+| Program                                           | Name                                                                                            |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| :penguin: **OS**                                  | [Arch](https://wiki.archlinux.org/) & [Nix](https://nixos.org/)                                 |
+| :art: **Compositor**                              | [Hyprland](https://github.com/hyprwm/Hyprland)                                                  |
+| :bar_chart: **Bar**                               | [Waybar](https://github.com/Alexays/Waybar)                                                     |
+| :bell: **Notifications**                          | [Dunst](https://github.com/dunst-project/dunst)                                                 |
+| :mag: **Application Launcher**                    | [Rofi](https://github.com/davatorium/rofi)                                                      |
+| :shell: **Shell**                                 | [Zsh](https://www.zsh.org/)                                                                     |
+| :black_medium_square: **Terminal Emulator**       | [WezTerm](https://wezfurlong.org/wezterm/)                                                      |
+| :musical_note: **Music Player**                   | [Spotify](https://www.spotify.com)                                                              |
+| :pencil2: **Editor**                              | [Neovim](https://neovim.io/)                                                                    |
+| :electric_plug: **sddm**                          | [sddm](https://github.com/sddm/sddm)                                                            |
 
-<!-- Operating System -->
-<!-- Window Manager -->
-<!-- Compositor -->
-<!-- Bar -->
-<!-- Notifications -->
-<!-- Application Launcher -->
-<!-- Shell -->
-<!-- Terminal Emulator -->
-<!-- Music -->
-<!-- Editor -->
-<!-- Fonts -->
-<!-- Icons -->
-<!-- Spotify/cava1 -->
-<!-- System Monitor -->
-<!-- sddm -->
-
-## Todo
-- [ ] README.md
-    - [ ] Programs List
-    - [ ] GitHub Badges
-- [ ] Themes
-    - [ ] Colors
-    - [ ] Fonts
+## TODO
 - [ ] Arch
-    - [ ] Install Notes
-        - [ ] Rename to cheatsheet
-        - [ ] Remove explicit names
-            - [ ] drives (`nvme`)
-            - [ ] hostname/user (`oven`/`cookie`)
-            - [ ] Timezone (`America/Los_Angeles`)
-            - [ ] `export EDITOR=nvim`
-            - [ ] Is wheel necessary?
-            - [ ] Mounting of Additional Drives/Internal Mounts
-        - [ ] Add note that it implies grub
-        - [ ] Labels when partitioning disks
+    - [ ] Compare notes to [archinstall](https://github.com/archlinux/archinstall)
     - [ ] Install Script
-        - [ ] Add initial sudo check:
-          ```bash
-          if [[ $EUID -eq 0 ]]; then
-              echo "This script should not be executed as root! Exiting......."
-              exit 1
-          fi
-          ```
-        - [ ] Clean up comments
-        - [ ] Redo File Structure
-          ```bash
-          # ├── dotfiles
-          # │   ├── .config
-          # │   ├── scripts
-          # │   └── README.md
-          ```
-        - [ ] Have it re-runnable
-        - [ ] Remove hardcoded variables
-            - [ ] username
-            - [ ] script paths
-        - [ ] lsd, kitty, screenlayout
-        - [ ] Packages
-            - [ ] `noto-fonts-emoji`
-            - [ ] `ttf-meslo-nerd-font-powerlevel10k`
-            - [ ] `webcord`
-            - [ ] `spotify`/`spicetify`
-            - [ ] glow (Mark Down Reader)
-        - [ ] Split Script
-            - [ ] Packages
-            - [ ] Rust/Cargo/Cargo Binaries
-            - [ ] Desktop Environment - (wayland/hyprland)
-        - [ ] Laptop
-            - [ ] Displaylink
-                - [ ] evdi-git
-                - [ ] displaylink
+        - [ ] Remove lines with SUDO
+        - [ ] Spotify/Spicetify
+        - [ ] Have it failable (re-runnable)
+        - [ ] Use `$USER`
 - [ ] NixOS
     - [ ] Applications
-        - [ ] Firefox/Chrome
         - [ ] LibreOffice
         - [ ] VLC
-        - [ ] Hyprland
         - [ ] Discord
-        - [ ] Bluetooth
-        - [ ] Dev Env
-            - [ ] Neovim
-            - [ ] Rust/Python
-            - [ ] Git
-            - [ ] Docker
-            - [ ] Zsh
+        - [ ] Waybar
+            - [ ] Audio Icons (pulseaudio)
+            - [ ] GruvBox Colors
+            - [ ] Bluetooth battery life
 - [ ] Packages
     - [ ] Bluetooth
         - [ ] [Settings](https://wiki.archlinux.org/title/bluetooth#Default_adapter_power_state)
@@ -116,8 +58,6 @@
               ```
     - [ ] Rust
         - [ ] [Sccache](https://wiki.archlinux.org/title/rust#sccache)
-        - [ ] `vcs = "none"`
-        - [ ] [rustfmt](https://github.com/rust-lang/rustfmt/blob/master/Configurations.md)
     - [ ] SDDM
         - [ ] Theme: [Chamber of Secrets](https://github.com/Carmoruda/sddm-hogwarts-themes)
         - [ ] [Dual Monitor](https://blog.victormendonca.com/2018/06/29/how-to-fix-sddm-on-multiple-screens/)
@@ -127,8 +67,3 @@
         - [ ] [Custom Config](https://wezfurlong.org/wezterm/config/files.html)
     - [ ] zsh
         - [ ] Add pacman alias [Pacman Tricks](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks)
-
-
-Rename bluetooth example
-bt-device --set macaddress|name Alias "New Name"
-bt-device --set C4:30:18:5F:EB:90 Alias "LG 38 Monitor"
