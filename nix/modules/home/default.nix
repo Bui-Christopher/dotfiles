@@ -50,7 +50,7 @@
             fonts.fontconfig.enable = true;
             programs.home-manager.enable = true;
             programs.wezterm = {
-                # TODO: Settings
+                # TODO: Customize Settings/Configuration
                 enable = true;
                 package = inputs.wezterm.packages.${pkgs.system}.default;
             };
@@ -70,7 +70,7 @@
                 };
             };
             imports = [
-                ./desktopEnvironment/default.nix
+                ./hypr/default.nix
                 ./firefox.nix
                 ./git.nix
                 ./nixvim.nix

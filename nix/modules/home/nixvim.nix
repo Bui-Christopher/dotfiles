@@ -373,6 +373,8 @@
             }
         ];
         plugins = {
+            # TODO: Add hotkey and explore config/settings
+            bufdelete.enable = true;
             bufferline = {
                 enable = true;
                 settings.options = {
@@ -638,7 +640,6 @@
                 timeout = 3000;
             };
             nvim-autopairs.enable = true;
-            # TODO: nvim-bufdel.enable = true;
             nvim-lightbulb.enable = true;
             nvim-surround.enable = true;
             nvim-tree = {
@@ -718,8 +719,9 @@
                     highlight.enable = true;
                 };
             };
+            # ISSUE: Disable due to crashing on cut/delete
             treesitter-refactor = {
-                enable = true;
+                enable = false;
                 highlightCurrentScope.enable = true;
                 highlightDefinitions.enable = true;
             };
@@ -732,13 +734,10 @@
                 enable = true;
             };
         };
-        # TODO: Find a better way to manage plugin hotkeys
-        # Certain plugins have their own setting mappings like telescope
+        # Define plugin keymaps with extra lua configuration
+        # TODO: Try using each plugin's "luaConfig" variable instead
         extraConfigLua = ''
             local opts = { silent = true }
-
-            -- Buffer Delete
-            -- vim.keymap.set("n", "<leader>bd", "<cmd>BufDelOthers<CR>", { desc = "Delete all other buffers" })
 
             -- Crates (Cargo.toml)
             -- Overview
@@ -757,7 +756,7 @@
             vim.keymap.set("n", "<leader>cH", function() require("crates").open_homepage(opts) end, { desc = "Open Homepage" })
             vim.keymap.set("n", "<leader>cR", function() require("crates").open_repository(opts) end, { desc = "Open Repository" })
 
-            -- Git Hunk Navigation
+            -- Gitsigns Hunk Navigation
             vim.keymap.set({ "n", "v" }, "]g", function() require("gitsigns.actions").next_hunk({}) end, { desc = "Jump to next git hunk" })
             vim.keymap.set({ "n", "v" }, "[g", function() require("gitsigns.actions").prev_hunk({}) end, { desc = "Jump to prev git hunk" })
 
@@ -783,7 +782,7 @@
             vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next comment keyword" })
             vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous comment keyword" })
 
-            -- which-key
+            -- Which-key
             vim.keymap.set("n", "<leader>?", function() require("which-key").show({ global = false }) end, { desc = "Show Keymaps" })
         '';
         opts = {

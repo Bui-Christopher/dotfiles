@@ -23,7 +23,7 @@
             OverridePostUpdatePage = "";
             # SearchBar = "unified"; # "unified" | "separate"
 
-            # NOTE: Used the search api to find GUID
+            # NOTE: Use the search api to find an extension's GUID
             # https://addons.mozilla.org/api/v5/addons/search/?q=bit-warden-manager
             ExtensionSettings = {
                 "*".installation_mode = "blocked"; # blocks all addons except the ones specified below

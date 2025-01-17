@@ -1,10 +1,23 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
+    # Kernel
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+
     # Bootloader
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.configurationLimit = 5;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    # Power Keys
+    services.logind.extraConfig = ''
+        # Don’t shutdown when power button is short-pressed
+        HandlePowerKey=suspend
+        HandlePowerKeyLongPress=poweroff
+
+        # Continue listening to music while laptop is closed
+        LidSwitchIgnoreInhibited=no
+    '';
 
     # GnuPG
     services.pcscd.enable = true;
@@ -51,6 +64,9 @@
         htop
         neofetch
     ];
+    # Bluetooth
+    hardware.bluetooth.enable = true; # enables support for Bluetooth
+    hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
     # Sound
     security.rtkit.enable = true;
@@ -85,4 +101,24 @@
             ];
         };
     };
+
+    # Desktop Environment (Hypr)
+    services.xserver.enable = true;
+    services.xserver.xkb = {
+        layout = "us";
+        variant = "";
+    };
+
+    services.libinput.enable = true;
+    services.libinput.touchpad.naturalScrolling = true;
+
+    ## Hyprland
+    programs.hyprland = {
+        enable = true;
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
+
+    ## Hyprlock
+    programs.hyprlock.enable = true;
 }

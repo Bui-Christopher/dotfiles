@@ -3,9 +3,8 @@
         "position": "top",
         "height": 35,
         "spacing": 4,
-        "modules-center": ["hyprland/workspaces"],
-        "modules-right": ["pulseaudio", "battery", "network"],
-        "modules-left": ["clock"],
+        "modules-right": ["pulseaudio", "battery", "network", "clock"],
+        "modules-left": ["hyprland/workspaces"],
         "tray": {
             "icon-size": 30,
             "spacing": 20

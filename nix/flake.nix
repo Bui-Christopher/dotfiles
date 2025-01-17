@@ -13,7 +13,6 @@
         # Hyprland
         hyprland = {
             url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         # NixVim
@@ -36,7 +35,7 @@
                 specialArgs = { inherit inputs; };
                 modules = [
                     ./hosts/toaster/default.nix
-                    ./nixos/configuration.nix
+                    ./modules/configuration.nix
                 ];
             };
         };
