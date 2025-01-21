@@ -25,8 +25,8 @@ chown -R "$username:$username" "$config_dir" "$HOME/Documents" "$HOME/Downloads"
 # Official Packages
 sudo pacman -Syu
 sudo pacman -S --noconfirm \
-    blueberry chromium clang cmake curl docker docker-compose fakeroot \
-    feh gcc gzip htop iproute2 jq less make nim openssh openssl pavucontrol \
+    blueberry chromium clang cmake curl docker docker-compose fakeroot feh \
+    gcc gzip htop iproute2 jq less make nim npm openssh openssl pavucontrol \
     pkg-config polkit-kde-agent python rustup tmux tree unzip vlc wezterm \
     wget zip zsh
 
