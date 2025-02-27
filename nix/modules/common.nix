@@ -9,7 +9,9 @@
     boot.loader.systemd-boot.configurationLimit = 5;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    # Power Keys
+    # Power keys
+    # Don't suspend on AC plug in and lid close
+    services.logind.lidSwitchExternalPower = "ignore";
     services.logind.extraConfig = ''
         # Don’t shutdown when power button is short-pressed
         HandlePowerKey=suspend

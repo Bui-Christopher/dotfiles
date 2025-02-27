@@ -65,3 +65,6 @@ cd ...
 ln -s waybar/config.laptop ~/.config/waybar/config
 ln -s backgrounds ~/.config/backgrounds
 ```
+
+## TODO's
+- Hyprland gestures

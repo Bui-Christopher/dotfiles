@@ -107,8 +107,8 @@
                 ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
                 # Brightness
-                ", XF86MonBrightnessUp, exec, brightnessctl s +5%"
-                ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+                ", XF86MonBrightnessUp, exec, brightnessctl s +2.5%"
+                ", XF86MonBrightnessDown, exec, brightnessctl s 2.5%-"
 
                 # Keyboard Brightness
                 ", keyboard_brightness_up_shortcut, exec, brightnessctl -d *::kbd_backlight set +33%"

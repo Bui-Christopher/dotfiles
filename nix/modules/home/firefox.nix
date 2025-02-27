@@ -33,7 +33,7 @@
                     installation_mode = "force_installed";
                 };
                 # Dark Reader
-                "{b45a31f1-88f3-448f-a673-d42333ad06fb}" = {
+                "addon@darkreader.org" = {
                     install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
                     installation_mode = "force_installed";
                 };
@@ -53,6 +53,11 @@
                     installation_mode = "force_installed";
                 };
             };
+            # Preferences = {
+            #     # Hide tabs on fullscreen
+            #     browser.fullscreen.autohide = false;
+            #     browser.tabs.warnOnClose = true;
+            # };
         };
     };
 }

@@ -588,6 +588,7 @@
                     pyright.enable = true;
                     # tailwindcss.enable = true;
                     taplo.enable = true;
+                    ts_ls.enable = true;
                     # terraform_lsp.enable = true;
                     # terraformls.enable = true;
                     yamlls.enable = true;
@@ -637,7 +638,7 @@
             };
             notify = {
                 enable = true;
-                timeout = 3000;
+                settings.timeout = 3000;
             };
             nvim-autopairs.enable = true;
             nvim-lightbulb.enable = true;

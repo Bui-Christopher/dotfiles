@@ -23,7 +23,7 @@
                 check_color = "rgb(d79921)";
                 fail_color = "rgb(cc241d)";
                 fade_on_empty = false;
-                placeholder_text = "<i><span foreground=\"##cad3f5\">Input Password...</span></i>";
+                # placeholder_text = "<i><span foreground=\"##cad3f5\">Input Password...</span></i>";
                 fail_text = "";
             }];
         };
