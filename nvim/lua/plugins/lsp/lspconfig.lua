@@ -6,7 +6,10 @@ return {
         "mrcjkb/rustaceanvim",
     },
     config = function()
-        local lspconfig = require("lspconfig")
+        vim.lsp.setup = function(ls, config)
+            if config then vim.lsp.config[ls] = config end
+            vim.lsp.enable(ls)
+        end
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
@@ -14,9 +17,9 @@ return {
         end
 
         -- Configure each LSP server
-        lspconfig["bashls"].setup {}
-        lspconfig["clangd"].setup {}
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config('bashls', {})
+        vim.lsp.config('clangd', {})
+        vim.lsp.config('lua_ls', {
             settings = {
                 Lua = {
                     format = {
@@ -31,8 +34,8 @@ return {
                 }
             }
         })
-        lspconfig["pyright"].setup {}
-        lspconfig["rust-analyzer"] = {}
-        lspconfig["taplo"].setup {} -- toml
+        vim.lsp.config('pyright', {})
+        vim.lsp.config('rust-analyzer', {})
+        vim.lsp.config('taplo', {})
     end,
 }

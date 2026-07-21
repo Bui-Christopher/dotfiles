@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = create_autocmd("highlight_yank"),
     callback = function()
-        vim.highlight.on_yank()
+        vim.hl.on_yank()
     end,
 })
 
@@ -51,7 +51,6 @@ vim.api.nvim_create_autocmd("FileType", {
         "startuptime",
         "tsplayground",
         "neotest-output",
-        "checkhealth",
         "neotest-summary",
         "neotest-output-panel",
     },
@@ -78,15 +77,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
--- Format on save (Rust files)
-local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.cpp", "*.lua", "*.py" },
-    callback = function()
-        vim.lsp.buf.format({ timeout_ms = 200 })
-    end,
-    group = format_sync_grp,
-})
+-- Format on save
+-- local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = { "*.rs", "*.cpp", "*.lua", "*.py" },
+--     callback = function()
+--         vim.lsp.buf.format({ timeout_ms = 200 })
+--     end,
+--     group = format_sync_grp,
+-- })
 
 -- Wrap/Spell Check in Text Filetypes
 vim.api.nvim_create_autocmd("FileType", {

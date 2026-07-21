@@ -27,6 +27,12 @@ return {
             function() require("telescope.builtin").grep_string({}) end,
             desc = "Grep String",
         },
+
+        {
+            "<leader>gg",
+            function() require("telescope.builtin").git_status({}) end,
+            desc = "Git Files",
+        },
     },
     config = function()
         require('telescope').setup {

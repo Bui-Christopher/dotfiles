@@ -6,7 +6,7 @@
 
 set -e
 
-export username="cookie"
+export username=$(echo $USER)
 export config_dir="$HOME/.config"
 
 # Note: "$(cd "$(dirname "$0")" && pwd)" cd to running script directory
@@ -25,9 +25,9 @@ chown -R "$username:$username" "$config_dir" "$HOME/Documents" "$HOME/Downloads"
 # Official Packages
 sudo pacman -Syu
 sudo pacman -S --noconfirm \
-    blueberry chromium clang cmake curl docker docker-compose fakeroot feh \
-    gcc gzip htop iproute2 jq less make nim npm openssh openssl pavucontrol \
-    pkg-config polkit-kde-agent python rustup tmux tree unzip vlc wezterm \
+    archlinux-keyring blueberry btop chromium clang cmake curl docker docker-compose fakeroot feh \
+    gcc grpc gzip htop iproute2 java jq less make net-tools nim nmap npm nvtop openssh openssl pavucontrol \
+    pkg-config polkit-kde-agent protobuf python rustup tmux tree unzip vlc wezterm \
     wget zip zsh
 
 # AUR Helper
@@ -40,7 +40,7 @@ rm -rf yay
 
 # AUR Packages
 yay -S --noconfirm \
-    noto-fonts-emoji-blob ttf-meslo-nerd-font-powerlevel10k vesktop \
+    noto-fonts-emoji noto-fonts-emoji-blob ttf-meslo-nerd-font-powerlevel10k vesktop \
     lsd ripgrep sccache zoxide ttf-nerd-fonts-symbols
 
 # Spotify

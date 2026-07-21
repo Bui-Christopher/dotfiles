@@ -1,6 +1,6 @@
 return {
     "mrcjkb/rustaceanvim",
-    version = "^4",
+    version = "^9",
     ft = { "rust" },
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -23,8 +23,18 @@ return {
                         -- rustc = {
                         --     source = "discover",
                         -- },
+                        procMacro = {
+                            ignored = {
+                                leptos_macro = {
+                                    "server",
+                                },
+                            },
+                        },
+                        -- rustfmt = {
+                        --     extraArgs = { "+nightly" },
+                        -- },
                         rustfmt = {
-                            extraArgs = { "+nightly" },
+                            overrideCommand = { "leptosfmt", "--stdin", "-rustfmt" },
                         },
                     },
                 },

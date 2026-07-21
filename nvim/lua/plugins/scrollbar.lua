@@ -1,3 +1,4 @@
+-- TODO: Add more
 return {
     "petertriho/nvim-scrollbar",
     event = "VeryLazy",

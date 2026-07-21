@@ -11,7 +11,7 @@ return {
                 null_ls.builtins.diagnostics.pylint.with({
                     extra_args = { "--disable=C0111" }, -- Disable missing-class-docstring warning
                 }),
-                null_ls.builtins.diagnostics.eslint,
+                -- null_ls.builtins.diagnostics.eslint,
             }
         })
     end,

@@ -13,6 +13,9 @@ local opts = { noremap = true, silent = true }
 ------------
 -- Normal --
 ------------
+-- Clear Search
+keymap("n", "<leader>pp", ':let @+ = expand("%:.") | echo expand("%:.")<CR>', opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -34,6 +37,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Open Nvim-Tree File Explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", opts)
 
 keymap("n", ",", "@q", opts)
 ------------
@@ -63,8 +67,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Diagnostics --
 -----------------
 vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -------------------
@@ -82,8 +86,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buff)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buff)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, buff)
+        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, buff)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, buff)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buff)
+        -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buff)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, buff)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, buff)
         vim.keymap.set('n', '<space>f', function()

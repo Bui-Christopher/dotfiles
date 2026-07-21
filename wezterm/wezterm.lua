@@ -6,7 +6,7 @@ config = {
     enable_wayland = false,
     color_scheme = 'Windows High Contrast (base16)',
     font = wezterm.font 'MesloLGS NF',
-    font_size = 17.5,
+    font_size = 20,
     keys = {
         {
             key = "t",
